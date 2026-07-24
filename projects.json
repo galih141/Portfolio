@@ -37,5 +37,65 @@
       "projects/bonita-coffe/img-04.jpg",
       "projects/bonita-coffe/img-05.jpg"
     ]
+  },
+  {
+    "id": "klar",
+    "title": "Klar",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project showcases high-fidelity 3D visualizations developed for the Klar packaging design concept.",
+    "images": [
+      "projects/klar/img-01.jpg",
+      "projects/klar/img-02.jpg",
+      "projects/klar/img-03.jpg",
+      "projects/klar/img-04.jpg"
+    ]
+  },
+  {
+    "id": "freshleaf",
+    "title": "Freshleaf",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project features high-fidelity 3D visualizations designed to bring the brand's packaging concept to life.",
+    "images": [
+      "projects/freshleaf/img-01.jpg",
+      "projects/freshleaf/img-02.jpg",
+      "projects/freshleaf/img-03.jpg",
+      "projects/freshleaf/img-04.jpg",
+      "projects/freshleaf/img-05.jpg"
+    ]
+  },
+  {
+    "id": "serum-pack",
+    "title": "Serum Pack",
+    "category": "mockup",
+    "description": "Created as part of my personal brand Free Today, this project showcases high-fidelity 3D mockups for a serum bottle and its outer packaging.",
+    "images": [
+      "projects/serum-pack/img-01.jpg",
+      "projects/serum-pack/img-02.jpg"
+    ]
+  },
+  {
+    "id": "alev",
+    "title": "Alev",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project features vibrant 3D visualizations developed to showcase the Alev product lineup.",
+    "images": [
+      "projects/alev/img-01.jpg",
+      "projects/alev/img-02.jpg",
+      "projects/alev/img-03.jpg",
+      "projects/alev/img-04.jpg",
+      "projects/alev/img-05.jpg"
+    ]
+  },
+  {
+    "id": "brendys-by-yuliet-beauty",
+    "title": "Brendys by Yuliet Beauty",
+    "category": "visualization",
+    "description": "Created for Brendys by Yuliet Beauty, this project showcases high-fidelity 3D visualizations developed directly alongside the client to bring their beauty packaging concept to life.",
+    "images": [
+      "projects/brendys-by-yuliet-beauty/img-01.jpg",
+      "projects/brendys-by-yuliet-beauty/img-02.jpg",
+      "projects/brendys-by-yuliet-beauty/img-03.jpg",
+      "projects/brendys-by-yuliet-beauty/img-04.jpg"
+    ]
   }
 ]
