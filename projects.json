@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": "vere-co",
+    "title": "Vere & Co",
+    "category": "visualization",
+    "description": "Creating visual product, mixed 3D and AI generative images",
+    "images": [
+      "projects/vere-co/img-01.jpg",
+      "projects/vere-co/img-02.jpg",
+      "projects/vere-co/img-03.jpg",
+      "projects/vere-co/img-04.jpg",
+      "projects/vere-co/img-05.jpg"
+    ]
+  },
+  {
+    "id": "benebites",
+    "title": "Benebites",
+    "category": "visualization",
+    "description": "Project from Widartoimpact, famous agencies based on Trenggalek",
+    "images": [
+      "projects/benebites/img-01.jpg",
+      "projects/benebites/img-02.jpg",
+      "projects/benebites/img-03.jpg",
+      "projects/benebites/img-04.jpg",
+      "projects/benebites/img-05.jpg"
+    ]
+  },
+  {
+    "id": "bonita-coffe",
+    "title": "Bonita Coffe",
+    "category": "visualization",
+    "description": "Help Widartoimpact visualize product, and it become one best of behance",
+    "images": [
+      "projects/bonita-coffe/img-01.jpg",
+      "projects/bonita-coffe/img-02.jpg",
+      "projects/bonita-coffe/img-03.jpg",
+      "projects/bonita-coffe/img-04.jpg",
+      "projects/bonita-coffe/img-05.jpg"
+    ]
+  }
+]
