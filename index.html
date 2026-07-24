@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galih Aji Arganata — 3D Visualization, Mockup &amp; 3D Elements</title>
+<meta name="description" content="Galih Aji Arganata — 3D designer, 10+ years experience. 3D visualization, mockups, and 3D elements for brands and marketplaces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="#top" class="brand">GALIH<span>.</span>3D</a>
+  <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="nav-cta">Chat on WhatsApp</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="slate">
+      <div class="slate__stripe"></div>
+      <div class="slate__body">
+        <div class="slate__row"><span>ARTIST</span><strong>Galih Aji Arganata</strong></div>
+        <div class="slate__row"><span>ROLE</span><strong>3D Designer</strong></div>
+        <div class="slate__row"><span>FOCUS</span><strong>Visualization / Mockup / 3D Elements</strong></div>
+      </div>
+      <div class="slate__stripe"></div>
+    </div>
+
+    <h1 class="hero__title">GALIH AJI<br>ARGANATA</h1>
+
+    <p class="hero__bio">
+      Hi, I'm Galih — a 3D designer with <strong>10+ years</strong> of experience creating product visualizations, mockups, and 3D elements for brands, agencies, and digital marketplaces. I've contributed to feature-film pipelines credited on IMDb, and supplied 3D assets used by thousands of buyers worldwide. Whatever your project needs — a clean product render, a realistic mockup, or a custom 3D element pack — I turn it into something ready to publish, pitch, or sell.
+    </p>
+
+    <div class="hero__strip">
+      <span><b>10+</b> Years Experience</span>
+      <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener"><b>IMDb</b> Credited Artist</a>
+      <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener"><b>74+</b> Orders on Fastwork</a>
+      <span><b>25</b> Repeat Clients</span>
+    </div>
+
+    <div class="hero__actions">
+      <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
+      <a href="mailto:ga.arganata@gmail.com" class="btn btn--outline">Email Instead</a>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="section">
+    <div class="section__head">
+      <div class="tag-slate"><i></i>SELECTED WORK</div>
+      <h2>What I Can Build For You</h2>
+      <p class="section__sub">Tap any project to see the full set of images and the story behind it.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="visualization">3D Visualization</button>
+      <button class="filter-btn" data-cat="mockup">Mockup</button>
+      <button class="filter-btn" data-cat="element">3D Element</button>
+    </div>
+
+    <div id="projectGrid" class="bento project-grid"></div>
+    <div id="emptyState" class="empty-state" style="display:none;">
+      No projects here yet — check back soon.
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact">
+    <div class="cta-band">
+      <h3>Have a project in mind? Let's build it.</h3>
+      <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
+      <div class="cta-band__alt">
+        <a href="mailto:ga.arganata@gmail.com">Email</a>
+        <span>·</span>
+        <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener">Fastwork Reviews</a>
+        <span>·</span>
+        <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener">IMDb</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__panel">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <div class="lightbox__image-area">
+      <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous image">‹</button>
+      <img id="lightboxImg" src="" alt="">
+      <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next image">›</button>
+      <span class="lightbox__count" id="lbCount"></span>
+    </div>
+    <div class="lightbox__info">
+      <span class="cat-pill" id="lbCat"></span>
+      <h3 id="lbTitle"></h3>
+      <p id="lbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 GALIH AJI ARGANATA — 3D DESIGNER</span>
+  <span>MALANG, INDONESIA</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
