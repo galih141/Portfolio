@@ -1,5 +1,5 @@
 :root {
-  --paper: #FFFFFF; --ink: #101010; --white: #FFFFFF;
+  --paper: #EDEAE1; --ink: #101010; --white: #FFFFFF;
   --orange: #FF4612; --blue: #1640D6; --grey: #8A8578; --line: rgba(16,16,16,0.14);
   --shadow-off: 6px;
   --font-display: 'Archivo Black', sans-serif;
@@ -54,7 +54,14 @@ button { font-family: inherit; }
 .slate__row { display: flex; gap: 10px; }
 .slate__row span { color: var(--orange); width: 90px; flex-shrink: 0; text-transform: uppercase; }
 
-.hero__title { font-size: clamp(44px, 8vw, 96px); margin-bottom: 20px; }
+.hero__title { font-size: clamp(44px, 8vw, 96px); margin-bottom: 14px; }
+
+.hero__meta {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--ink); margin-bottom: 20px;
+}
+.hero__meta b { color: var(--orange); margin-right: 8px; }
 
 .hero__bio { max-width: 700px; font-size: 18px; color: #2a2a2a; margin-bottom: 28px; }
 .hero__bio strong { background: var(--orange); padding: 0 4px; }
