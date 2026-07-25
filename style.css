@@ -58,7 +58,7 @@ button { font-family: inherit; }
 
 .hero__meta {
   display: flex; flex-wrap: wrap; gap: 6px 20px;
-  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em;
+  font-family: var(--font-mono); font-size: 15px; text-transform: uppercase; letter-spacing: 0.03em;
   color: var(--ink); margin-bottom: 20px;
 }
 .hero__meta b { color: var(--orange); margin-right: 8px; }
