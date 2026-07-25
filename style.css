@@ -1,5 +1,5 @@
 :root {
-  --paper: #EDEAE1; --ink: #101010; --white: #FFFFFF;
+  --paper: #FFFFFF; --ink: #101010; --white: #FFFFFF;
   --orange: #FF4612; --blue: #1640D6; --grey: #8A8578; --line: rgba(16,16,16,0.14);
   --shadow-off: 6px;
   --font-display: 'Archivo Black', sans-serif;
