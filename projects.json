@@ -1,5 +1,104 @@
 [
   {
+    "id": "vere-co",
+    "title": "Vere & Co",
+    "category": "visualization",
+    "description": "Creating visual product, mixed 3D and AI generative images",
+    "images": [
+      "projects/vere-co/img-01.jpg",
+      "projects/vere-co/img-02.jpg",
+      "projects/vere-co/img-03.jpg",
+      "projects/vere-co/img-04.jpg",
+      "projects/vere-co/img-05.jpg"
+    ]
+  },
+  {
+    "id": "benebites",
+    "title": "Benebites",
+    "category": "visualization",
+    "description": "Project from Widartoimpact, famous agencies based on Trenggalek",
+    "images": [
+      "projects/benebites/img-01.jpg",
+      "projects/benebites/img-02.jpg",
+      "projects/benebites/img-03.jpg",
+      "projects/benebites/img-04.jpg",
+      "projects/benebites/img-05.jpg"
+    ]
+  },
+  {
+    "id": "bonita-coffe",
+    "title": "Bonita Coffe",
+    "category": "visualization",
+    "description": "Help Widartoimpact visualize product, and it become one best of behance",
+    "images": [
+      "projects/bonita-coffe/img-01.jpg",
+      "projects/bonita-coffe/img-02.jpg",
+      "projects/bonita-coffe/img-03.jpg",
+      "projects/bonita-coffe/img-04.jpg",
+      "projects/bonita-coffe/img-05.jpg"
+    ]
+  },
+  {
+    "id": "klar",
+    "title": "Klar",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project showcases high-fidelity 3D visualizations developed for the Klar packaging design concept.",
+    "images": [
+      "projects/klar/img-01.jpg",
+      "projects/klar/img-02.jpg",
+      "projects/klar/img-03.jpg",
+      "projects/klar/img-04.jpg"
+    ]
+  },
+  {
+    "id": "freshleaf",
+    "title": "Freshleaf",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project features high-fidelity 3D visualizations designed to bring the brand's packaging concept to life.",
+    "images": [
+      "projects/freshleaf/img-01.jpg",
+      "projects/freshleaf/img-02.jpg",
+      "projects/freshleaf/img-03.jpg",
+      "projects/freshleaf/img-04.jpg",
+      "projects/freshleaf/img-05.jpg"
+    ]
+  },
+  {
+    "id": "serum-pack",
+    "title": "Serum Pack",
+    "category": "mockup",
+    "description": "Created as part of my personal brand Free Today, this project showcases high-fidelity 3D mockups for a serum bottle and its outer packaging.",
+    "images": [
+      "projects/serum-pack/img-01.jpg",
+      "projects/serum-pack/img-02.jpg"
+    ]
+  },
+  {
+    "id": "alev",
+    "title": "Alev",
+    "category": "visualization",
+    "description": "Created in collaboration with Widarto Impact, this project features vibrant 3D visualizations developed to showcase the Alev product lineup.",
+    "images": [
+      "projects/alev/img-01.jpg",
+      "projects/alev/img-02.jpg",
+      "projects/alev/img-03.jpg",
+      "projects/alev/img-04.jpg",
+      "projects/alev/img-05.jpg"
+    ]
+  },
+  {
+    "id": "brendys-by-yuliet-beauty",
+    "title": "Brendys by Yuliet Beauty",
+    "category": "visualization",
+    "description": "Created for Brendys by Yuliet Beauty, this project showcases high-fidelity 3D visualizations developed directly alongside the client to bring their beauty packaging concept to life.",
+    "images": [
+      "projects/brendys-by-yuliet-beauty/img-01.jpg",
+      "projects/brendys-by-yuliet-beauty/img-02.jpg",
+      "projects/brendys-by-yuliet-beauty/img-03.jpg",
+      "projects/brendys-by-yuliet-beauty/img-04.jpg"
+    ]
+  },
+  {
     "id": "3d-dualsense-controller-skin-mockup-pack",
     "title": "3D DualSense Controller Skin Mockup Pack",
     "category": "mockup",
@@ -18,9 +117,9 @@
     "category": "visualization",
     "description": "This project is a 3D sprayer visualization created as a personal design experiment for Freetoday. Built with precise texturing and studio lighting, it highlights product details and material finishes from multiple angles. It serves as a clean commercial asset showcase tailored for portfolio presentation.",
     "images": [
-      "projects/3d-sprayer-visualization/img-01.jpg",
-      "projects/3d-sprayer-visualization/img-02.jpg",
-      "projects/3d-sprayer-visualization/img-03.jpg"
+      "projects/3d-sprayer-visualization/img-01.png",
+      "projects/3d-sprayer-visualization/img-02.png",
+      "projects/3d-sprayer-visualization/img-03.png"
     ]
   },
   {
