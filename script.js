@@ -8,19 +8,12 @@
   const emptyState = document.getElementById('emptyState');
   const filterRow = document.getElementById('filterRow');
   const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightboxImg');
-  const lbCount = document.getElementById('lbCount');
-  const lbTitle = document.getElementById('lbTitle');
-  const lbDesc = document.getElementById('lbDesc');
-  const lbCat = document.getElementById('lbCat');
-  const lbPrev = document.getElementById('lbPrev');
-  const lbNext = document.getElementById('lbNext');
+  const lightboxPanel = document.getElementById('lightboxPanel');
+  const lightboxContent = document.getElementById('lightboxContent');
   const lbClose = document.getElementById('lightboxClose');
 
   let projects = [];
   let activeCategory = 'all';
-  let lbProject = null;
-  let lbIndex = 0;
 
   // ---------- fetch data ----------
   fetch('projects.json', { cache: 'no-store' })
@@ -123,55 +116,139 @@
     renderGrid();
   });
 
-  // ---------- lightbox ----------
-  function openLightbox(proj) {
-    lbProject = proj;
-    lbIndex = 0;
-    lbTitle.textContent = proj.title;
-    lbDesc.textContent = proj.description || '';
-    lbCat.textContent = catLabels[proj.category] || proj.category;
-    lbCat.dataset.cat = proj.category;
-    updateLightboxImage();
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+  // ---------- lightbox (case-study layout) ----------
+  function imgWithFallback(src, alt, cssClass, fallbackClass, fallbackText) {
+    const img = document.createElement('img');
+    img.className = cssClass;
+    img.loading = 'lazy';
+    img.alt = alt;
+    img.src = src;
+    img.addEventListener('error', () => {
+      const fb = document.createElement('div');
+      fb.className = fallbackClass;
+      fb.textContent = fallbackText;
+      img.replaceWith(fb);
+    });
+    return img;
   }
 
-  function updateLightboxImage() {
-    if (!lbProject || !lbProject.images || lbProject.images.length === 0) return;
-    lbImg.src = lbProject.images[lbIndex];
-    lbImg.alt = `${lbProject.title} — image ${lbIndex + 1}`;
-    lbCount.textContent = `${lbIndex + 1} / ${lbProject.images.length}`;
-    const multi = lbProject.images.length > 1;
-    lbPrev.style.display = multi ? 'block' : 'none';
-    lbNext.style.display = multi ? 'block' : 'none';
+  function openLightbox(proj) {
+    lightboxContent.innerHTML = '';
+
+    // cover
+    const images = proj.images || [];
+    if (images.length) {
+      lightboxContent.appendChild(
+        imgWithFallback(images[0], proj.title, 'cs-cover', 'cs-cover-fallback', 'IMAGE COMING SOON')
+      );
+    } else {
+      const fb = document.createElement('div');
+      fb.className = 'cs-cover-fallback';
+      fb.textContent = 'IMAGE COMING SOON';
+      lightboxContent.appendChild(fb);
+    }
+
+    // header: title + meta line (category · client · year)
+    const header = document.createElement('div');
+    header.className = 'cs-header';
+
+    const h2 = document.createElement('h2');
+    h2.textContent = proj.title;
+    header.appendChild(h2);
+
+    const meta = document.createElement('div');
+    meta.className = 'cs-meta';
+    const metaParts = [];
+    metaParts.push((catLabels[proj.category] || proj.category || '').toUpperCase());
+    if (proj.client) metaParts.push(`CLIENT: ${proj.client.toUpperCase()}`);
+    if (proj.year) metaParts.push(`YEAR: ${proj.year}`);
+    meta.textContent = metaParts.join('   ·   ');
+    header.appendChild(meta);
+
+    lightboxContent.appendChild(header);
+
+    // overview (reuses existing description field)
+    if (proj.description) {
+      const overview = document.createElement('div');
+      overview.className = 'cs-block cs-block--text';
+      const h3 = document.createElement('h3');
+      h3.textContent = 'Overview';
+      const p = document.createElement('p');
+      p.textContent = proj.description;
+      overview.appendChild(h3);
+      overview.appendChild(p);
+      lightboxContent.appendChild(overview);
+    }
+
+    // optional process blocks (image/text, in order)
+    if (Array.isArray(proj.process) && proj.process.length) {
+      proj.process.forEach(block => {
+        const divider = document.createElement('hr');
+        divider.className = 'cs-divider';
+        lightboxContent.appendChild(divider);
+
+        if (block.type === 'image' && block.src) {
+          const wrap = document.createElement('div');
+          wrap.className = 'cs-block';
+          wrap.appendChild(
+            imgWithFallback(block.src, block.caption || proj.title, 'cs-img', 'cs-img-fallback', 'IMAGE COMING SOON')
+          );
+          lightboxContent.appendChild(wrap);
+        } else if (block.type === 'text') {
+          const wrap = document.createElement('div');
+          wrap.className = 'cs-block cs-block--text';
+          if (block.heading) {
+            const h3 = document.createElement('h3');
+            h3.textContent = block.heading;
+            wrap.appendChild(h3);
+          }
+          const p = document.createElement('p');
+          p.textContent = block.body || '';
+          wrap.appendChild(p);
+          lightboxContent.appendChild(wrap);
+        }
+      });
+    }
+
+    // remaining images as a final gallery grid
+    const rest = images.slice(1);
+    if (rest.length) {
+      const divider = document.createElement('hr');
+      divider.className = 'cs-divider';
+      lightboxContent.appendChild(divider);
+
+      const label = document.createElement('div');
+      label.className = 'cs-gallery-label';
+      label.textContent = 'More from this project';
+      lightboxContent.appendChild(label);
+
+      const gallery = document.createElement('div');
+      gallery.className = 'cs-gallery';
+      rest.forEach((src, i) => {
+        gallery.appendChild(
+          imgWithFallback(src, `${proj.title} — image ${i + 2}`, '', 'cs-img-fallback', 'IMAGE COMING SOON')
+        );
+      });
+      lightboxContent.appendChild(gallery);
+    }
+
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightboxPanel.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    lbProject = null;
   }
 
-  lbPrev.addEventListener('click', () => {
-    if (!lbProject) return;
-    lbIndex = (lbIndex - 1 + lbProject.images.length) % lbProject.images.length;
-    updateLightboxImage();
-  });
-  lbNext.addEventListener('click', () => {
-    if (!lbProject) return;
-    lbIndex = (lbIndex + 1) % lbProject.images.length;
-    updateLightboxImage();
-  });
   lbClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => {
     if (e.target === lightbox) closeLightbox();
   });
   document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') lbPrev.click();
-    if (e.key === 'ArrowRight') lbNext.click();
+    if (lightbox.classList.contains('open') && e.key === 'Escape') closeLightbox();
   });
 })();
