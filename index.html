@@ -21,6 +21,13 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="slate">
+      <div class="slate__stripe"></div>
+      <div class="slate__body">
+        <div class="slate__row"><span>ARTIST</span><strong>Galih Aji Arganata</strong></div>
+      </div>
+      <div class="slate__stripe"></div>
+    </div>
 
     <h1 class="hero__title">GALIH AJI<br>ARGANATA</h1>
 
@@ -86,19 +93,9 @@
 
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox__panel">
+  <div class="lightbox__panel" id="lightboxPanel">
     <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
-    <div class="lightbox__image-area">
-      <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous image">‹</button>
-      <img id="lightboxImg" src="" alt="">
-      <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next image">›</button>
-      <span class="lightbox__count" id="lbCount"></span>
-    </div>
-    <div class="lightbox__info">
-      <span class="cat-pill" id="lbCat"></span>
-      <h3 id="lbTitle"></h3>
-      <p id="lbDesc"></p>
-    </div>
+    <div id="lightboxContent"><!-- filled by script.js --></div>
   </div>
 </div>
 
