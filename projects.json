@@ -29,13 +29,52 @@
     "id": "bonita-coffe",
     "title": "Bonita Coffe",
     "category": "visualization",
-    "description": "Help Widartoimpact visualize product, and it become one best of behance",
+    "description": "For this project, I helped Widarto Impact visualize their newly designed packaging as part of a product rebranding. My role was to translate the new visual identity into engaging 3D product visuals that showcased the packaging, colors, and overall character of the refreshed brand.",
     "images": [
-      "projects/bonita-coffe/img-01.jpg",
-      "projects/bonita-coffe/img-02.jpg",
-      "projects/bonita-coffe/img-03.jpg",
-      "projects/bonita-coffe/img-04.jpg",
-      "projects/bonita-coffe/img-05.jpg"
+      "projects/bonita-coffe/img-01.jpg"
+    ],
+    "client": "Widarto Impact",
+    "year": "2022",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Bringing the New Identity Into 3D",
+        "body": "I started by building the scene around the packaging, establishing the composition, camera perspective, and supporting elements before moving into materials and lighting."
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-01.png"
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-02.png"
+      },
+      {
+        "type": "text",
+        "heading": "Setting Up the Scene",
+        "body": "I started by building the scene around the actual packaging artwork. I used the original packaging design as a reference, folding it into the 3D model to match the proportions and dimensions of the real product as closely as possible."
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-05.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/bonita-coffe/process-06.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Final Result",
+        "body": "The final visuals translate Widarto Impact's new packaging direction into a series of expressive 3D compositions, giving the refreshed identity a stronger presence across different campaign visuals."
+      }
     ]
   },
   {
@@ -117,9 +156,9 @@
     "category": "visualization",
     "description": "This project is a 3D sprayer visualization created as a personal design experiment for Freetoday. Built with precise texturing and studio lighting, it highlights product details and material finishes from multiple angles. It serves as a clean commercial asset showcase tailored for portfolio presentation.",
     "images": [
-      "projects/3d-sprayer-visualization/img-01.jpg",
-      "projects/3d-sprayer-visualization/img-02.jpg",
-      "projects/3d-sprayer-visualization/img-03.jpg"
+      "projects/3d-sprayer-visualization/img-01.png",
+      "projects/3d-sprayer-visualization/img-02.png",
+      "projects/3d-sprayer-visualization/img-03.png"
     ]
   },
   {
