@@ -16,13 +16,43 @@
     "id": "benebites",
     "title": "Benebites",
     "category": "visualization",
-    "description": "Project from Widartoimpact, famous agencies based on Trenggalek",
+    "description": "For this project, I worked with Widarto Impact to visualize the BeneBites packaging in 3D. The goal was to translate the packaging design into a detailed product visualization while maintaining the brand’s dark green and premium visual direction.",
     "images": [
-      "projects/benebites/img-01.jpg",
-      "projects/benebites/img-02.jpg",
-      "projects/benebites/img-03.jpg",
-      "projects/benebites/img-04.jpg",
-      "projects/benebites/img-05.jpg"
+      "projects/benebites/img-01.jpg"
+    ],
+    "client": "Widarto Impact",
+    "year": "2021",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Adding Surface Detail",
+        "body": "To bring more depth to the packaging, I used normal maps and material details to recreate the subtle embossed pattern and surface texture. This helped the packaging feel more physical while keeping the clean, premium character of the design."
+      },
+      {
+        "type": "image",
+        "src": "projects/benebites/process-01.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "The final renders",
+        "body": "I  explore several compositions for the BeneBites packaging, from a clean product presentation to more dynamic arrangements. Each scene was designed to keep the packaging and its visual identity at the center of the image."
+      },
+      {
+        "type": "image",
+        "src": "projects/benebites/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/benebites/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/benebites/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/benebites/process-05.jpg"
+      }
     ]
   },
   {
@@ -38,8 +68,8 @@
     "process": [
       {
         "type": "text",
-        "heading": "Bringing the New Identity Into 3D",
-        "body": "I started by building the scene around the packaging, establishing the composition, camera perspective, and supporting elements before moving into materials and lighting."
+        "heading": "Setting Up the Scene",
+        "body": "I started by building the scene around the actual packaging artwork. Used the original packaging design as a reference, folding it into the 3D model to match the proportions and dimensions of the real product as closely as possible."
       },
       {
         "type": "image",
@@ -51,8 +81,8 @@
       },
       {
         "type": "text",
-        "heading": "Setting Up the Scene",
-        "body": "I started by building the scene around the actual packaging artwork. I used the original packaging design as a reference, folding it into the 3D model to match the proportions and dimensions of the real product as closely as possible."
+        "heading": "Final Result",
+        "body": "The final visuals translate Widarto Impact's new packaging direction into a series of expressive 3D compositions, giving the refreshed identity a stronger presence across different campaign visuals."
       },
       {
         "type": "image",
@@ -69,11 +99,6 @@
       {
         "type": "image",
         "src": "projects/bonita-coffe/process-06.jpg"
-      },
-      {
-        "type": "text",
-        "heading": "Final Result",
-        "body": "The final visuals translate Widarto Impact's new packaging direction into a series of expressive 3D compositions, giving the refreshed identity a stronger presence across different campaign visuals."
       }
     ]
   },
@@ -81,12 +106,43 @@
     "id": "klar",
     "title": "Klar",
     "category": "visualization",
-    "description": "Created in collaboration with Widarto Impact, this project showcases high-fidelity 3D visualizations developed for the Klar packaging design concept.",
+    "description": "For this project, I translated Klar’s laundry packaging design into 3D product visuals, focusing on its bold pink identity and playful character. The goal was to create a set of visuals that made the packaging feel tangible while keeping the brand’s energetic look at the center.",
     "images": [
-      "projects/klar/img-01.jpg",
-      "projects/klar/img-02.jpg",
-      "projects/klar/img-03.jpg",
-      "projects/klar/img-04.jpg"
+      "projects/klar/img-01.jpg"
+    ],
+    "client": "Widarto Impact",
+    "year": "2021",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Details Matter",
+        "body": "I used normal maps to add subtle details throughout the packaging, including small elements like the sticker and surface features. Even details that may seem minor can make a noticeable difference in the final render, helping the packaging feel more authentic and giving the materials a stronger sense of depth."
+      },
+      {
+        "type": "image",
+        "src": "projects/klar/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/klar/process-02.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "A Bold and Playful Product Direction",
+        "body": "The final renders explore Klar across several compositions, from close-up product arrangements to clean standalone shots. The strong pink environment and soft lighting help emphasize the packaging while giving the overall presentation a playful, energetic feel."
+      },
+      {
+        "type": "image",
+        "src": "projects/klar/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/klar/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/klar/process-05.jpg"
+      }
     ]
   },
   {
