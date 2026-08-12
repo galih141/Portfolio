@@ -181,7 +181,7 @@ button { font-family: inherit; }
 .cta-info-list b {
   font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--grey);
 }
-.cta-info-list a, .cta-info-list span { font-size: 15px; color: var(--paper); text-decoration: none; }
+.cta-info-list a, .cta-info-list span { font-size: 15px; color: #F5F5F3; text-decoration: none; }
 .cta-info-list a:hover { color: var(--orange); text-decoration: underline; }
 
 /* footer */
