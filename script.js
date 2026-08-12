@@ -4,6 +4,18 @@
 (() => {
   const catLabels = { visualization: '3D Visualization', mockup: 'Mockup', element: '3D Element' };
 
+  const testimonials = [
+    { name: 'willy9268', quote: 'Bagus! Akan berikan project baru lagi.' },
+    { name: 'graceshena', quote: 'Kerja nya cepat sekali dan hasilnya sesuai yang saya mau. Next time akan kesini lagi. Thank youu' },
+    { name: 'graceshena', quote: 'Kakaknya cepat sekali kerja nya, sopan, hasilnya juga sesuai yang saya minta dan mau membantu dengan budget saya. Very recommended!' },
+    { name: 'hlliixqa', quote: 'seneng banget hasilnya sesuai keinginan padahal pesennya mepet sehari jadi dong. makasiii banyak' },
+    { name: 'pauwibss', quote: 'good job! suka hasilnya keren' },
+    { name: 'zlyhsqta', quote: 'terima kasih banyak recom banget dan sabar banget orangnya' },
+    { name: 'Harley', quote: 'always perfect om every project' },
+    { name: 'Harley', quote: 'Cepat tanggap dan cepat selesai setiap project yang diberikan, selalu bekerjasama dengan baik dan komunikatif. Sejak awal dan lama sudah kita bekerjasama, tidak pernah sekalipun mengecewakan, terimakasih banyak atas hasil karyanya yang super premium dan luarbiasa keren!' },
+    { name: 'szwsqgts', quote: 'sangat friendly, mau mendengar request, dikerjakan dengan baik, ada updatenya, bertanggung jawab, hasilnya bagus dan cantik. recommended.' }
+  ];
+
   const grid = document.getElementById('projectGrid');
   const emptyState = document.getElementById('emptyState');
   const filterRow = document.getElementById('filterRow');
@@ -77,22 +89,21 @@
       const body = document.createElement('div');
       body.className = 'project-card__body';
 
-      const pill = document.createElement('span');
-      pill.className = 'cat-pill';
-      pill.dataset.cat = proj.category;
-      pill.textContent = catLabels[proj.category] || proj.category;
-      body.appendChild(pill);
+      const num = document.createElement('div');
+      num.className = 'project-card__num';
+      const fixedIndex = projects.indexOf(proj);
+      num.textContent = String(fixedIndex + 1).padStart(2, '0');
+      body.appendChild(num);
 
       const title = document.createElement('div');
       title.className = 'project-card__title';
       title.textContent = proj.title;
       body.appendChild(title);
 
-      const count = document.createElement('div');
-      count.className = 'project-card__count';
-      const n = proj.images ? proj.images.length : 0;
-      count.textContent = `${n} image${n === 1 ? '' : 's'}`;
-      body.appendChild(count);
+      const cat = document.createElement('div');
+      cat.className = 'project-card__cat';
+      cat.textContent = (catLabels[proj.category] || proj.category || '').toUpperCase();
+      body.appendChild(cat);
 
       card.appendChild(body);
 
@@ -268,4 +279,38 @@
     localStorage.setItem('theme', next);
     updateToggleLabel();
   });
+
+  // ---------- testimonial carousel ----------
+  const tText = document.getElementById('testimonialText');
+  const tName = document.getElementById('testimonialName');
+  const tCount = document.getElementById('tCount');
+  const tPrev = document.getElementById('tPrev');
+  const tNext = document.getElementById('tNext');
+  let tIndex = 0;
+
+  function renderTestimonial() {
+    const t = testimonials[tIndex];
+    tText.textContent = t.quote;
+    tName.textContent = t.name;
+    tCount.textContent = `${tIndex + 1} / ${testimonials.length}`;
+  }
+  if (tText && testimonials.length) {
+    renderTestimonial();
+    tPrev.addEventListener('click', () => {
+      tIndex = (tIndex - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial();
+    });
+    tNext.addEventListener('click', () => {
+      tIndex = (tIndex + 1) % testimonials.length;
+      renderTestimonial();
+    });
+  }
+
+  // ---------- back to top ----------
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 })();
