@@ -112,11 +112,11 @@ button { font-family: inherit; }
 .filter-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
 .filter-btn {
   font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em;
-  border: 2px solid var(--ink); background: var(--white); padding: 9px 16px; cursor: pointer;
+  border: 2px solid var(--ink); background: var(--white); color: var(--ink); padding: 9px 16px; cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease;
 }
 .filter-btn:hover { background: var(--hover-tint); }
-.filter-btn.active { background: #101010; color: #F5F5F3; border-color: #101010; }
+.filter-btn.active { background: var(--ink); color: var(--paper); }
 
 /* bento grid */
 .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
