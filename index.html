@@ -9,19 +9,45 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+  })();
+</script>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="#top" class="brand">GALIH<span>.</span>3D</a>
-  <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="nav-cta">Chat on WhatsApp</a>
+  <a href="#top" class="brand">
+    <svg class="brand-logo" viewBox="0 0 604 604" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g transform="matrix(1,0,0,1,-10291.828509,-137.758951)">
+        <g transform="matrix(0.494108,0,0,0.494108,4849.12655,63.777045)">
+          <rect x="11015.204" y="149.728" width="1222.109" height="1222.109" style="fill:none;"/>
+          <g transform="matrix(2.466406,0,0,2.466406,10751.063427,-61.380818)">
+            <path d="M345.499,209.041C323.486,210.377 325.137,224.012 317.638,256.532C307.068,302.369 286.191,406.568 278.299,442.459C274.822,458.269 287.983,460.779 291.484,460.858C296.194,460.965 344.887,462.064 350.368,460.107C359.323,456.908 357.754,454.447 366.844,416.584C367.86,412.354 378.692,367.229 378.686,363.501C378.675,357.382 374.306,358.867 340.493,358.73C335.85,358.711 338.147,354.39 343.828,329.559C351.247,297.135 349.915,295.144 353.459,295.067C419.011,293.65 418.966,296.348 484.498,295.064C488.292,294.989 487.189,297.118 484.32,308.45C481.734,318.665 482.324,318.796 453.302,436.456C441.349,484.916 442.195,485.046 430.057,533.39C429.949,533.817 428.85,538.195 427.459,538.241C420.337,538.475 234.298,538.283 217.501,538.265C173.47,538.22 149.714,505.968 158.706,463.555C164.02,438.489 198.527,266.712 201.966,249.59C210.302,208.092 213.731,170.247 254.771,143.929C283.985,125.196 304.362,127.79 363.497,127.878C509.828,128.096 510.384,127.416 511.141,128.68C511.458,129.209 511.183,129.266 499.361,156.439C497.549,160.604 477.237,207.29 476.31,208.321C475.44,209.29 475.133,208.846 345.499,209.041Z" style="fill:var(--ink);"/>
+            <path d="M461.913,498.613C473.152,464.16 473.585,464.153 474.562,463.891C476.18,463.458 545.323,463.776 551.476,463.804C554.552,463.818 551.778,469.668 550.454,473.485C550.006,474.775 545.692,487.203 544.89,489.629C543.628,493.444 529.751,535.412 529.004,537.271C528.289,539.049 526.63,538.615 496.5,538.648C451.813,538.697 448.751,540.155 449.761,536.551C449.803,536.401 460.941,501.648 461.913,498.613Z" style="fill:rgb(253,55,2);"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </a>
+  <button id="themeToggle" class="nav-cta theme-toggle" aria-label="Toggle dark mode" type="button">Dark Mode</button>
 </header>
 
 <main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    
+    <div class="slate">
+      <div class="slate__stripe"></div>
+      <div class="slate__body">
+        <div class="slate__row"><span>ARTIST</span><strong>Galih Aji Arganata</strong></div>
+      </div>
+      <div class="slate__stripe"></div>
+    </div>
+
     <h1 class="hero__title">GALIH AJI<br>ARGANATA</h1>
 
     <div class="hero__meta">
@@ -30,13 +56,14 @@
     </div>
 
     <p class="hero__bio">
-      Hi, I'm Galih — a 3D designer with <strong>10+ years</strong> of experience creating product visualizations, mockups, and 3D elements for brands, agencies, and digital marketplaces. I've contributed to feature-film pipelines credited on IMDb, and supplied 3D assets used by thousands of buyers worldwide. Whatever your project needs — a clean product render, a realistic mockup, or a custom 3D element pack — I turn it into something ready to publish, pitch, or sell.
+      Hi, I'm Galih — a 3D designer with 10+ years of experience. I create high-impact product visualizations, professional mockups, and 3D elements for digital marketplaces. Backed by top-rated service on Fastwork, I bring your ideas to life with results clients love to return for.
     </p>
 
     <div class="hero__strip">
       <span><b>10+</b> Years Experience</span>
       <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener"><b>IMDb</b> Credited Artist</a>
       <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener"><b>74+</b> Orders on Fastwork</a>
+      <span><b>25</b> Repeat Clients</span>
     </div>
 
     <div class="hero__actions">
