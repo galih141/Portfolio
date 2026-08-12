@@ -12,8 +12,7 @@
 <script>
   (function () {
     var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    document.documentElement.setAttribute('data-theme', saved || 'light');
   })();
 </script>
 </head>
@@ -40,14 +39,6 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="slate">
-      <div class="slate__stripe"></div>
-      <div class="slate__body">
-        <div class="slate__row"><span>ARTIST</span><strong>Galih Aji Arganata</strong></div>
-      </div>
-      <div class="slate__stripe"></div>
-    </div>
-
     <h1 class="hero__title">GALIH AJI<br>ARGANATA</h1>
 
     <div class="hero__meta">
@@ -63,7 +54,6 @@
       <span><b>10+</b> Years Experience</span>
       <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener"><b>IMDb</b> Credited Artist</a>
       <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener"><b>74+</b> Orders on Fastwork</a>
-      <span><b>25</b> Repeat Clients</span>
     </div>
 
     <div class="hero__actions">
@@ -93,17 +83,39 @@
     </div>
   </section>
 
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="section testimonials-band">
+    <div class="section__head section__head--inv">
+      <div class="tag-slate tag-slate--inv"><i></i>CLIENT FEEDBACK</div>
+      <h2>Testimonials</h2>
+    </div>
+
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">“</span>
+      <p class="testimonial-text" id="testimonialText"></p>
+      <div class="testimonial-meta">
+        <span id="testimonialName"></span>
+        <span class="testimonial-stars">★ 5.0</span>
+        <span class="testimonial-source">via Fastwork</span>
+      </div>
+    </div>
+
+    <div class="testimonial-controls">
+      <button class="testimonial-nav" id="tPrev" aria-label="Previous testimonial">‹</button>
+      <span class="testimonial-count" id="tCount"></span>
+      <button class="testimonial-nav" id="tNext" aria-label="Next testimonial">›</button>
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="section contact">
     <div class="cta-band">
       <h3>Have a project in mind? Let's build it.</h3>
       <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
-      <div class="cta-band__alt">
-        <a href="mailto:ga.arganata@gmail.com">Email</a>
-        <span>·</span>
-        <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener">Fastwork Reviews</a>
-        <span>·</span>
-        <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener">IMDb</a>
+      <div class="contact-info-row">
+        <a class="info-chip" href="mailto:ga.arganata@gmail.com"><b>EMAIL</b> ga.arganata@gmail.com</a>
+        <span class="info-chip"><b>BASED IN</b> Malang, Indonesia</span>
+        <span class="info-chip"><b>STATUS</b> Open to freelance, full-time &amp; relocation</span>
       </div>
     </div>
   </section>
@@ -119,8 +131,17 @@
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 GALIH AJI ARGANATA — 3D DESIGNER</span>
-  <span>MALANG, INDONESIA</span>
+  <div class="site-footer__row">
+    <span class="site-footer__brand">GALIH.3D</span>
+    <span class="site-footer__copy">© 2026 Galih Aji Arganata. All rights reserved.</span>
+    <nav class="site-footer__social">
+      <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener">Fastwork</a>
+      <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener">IMDb</a>
+      <a href="https://www.linkedin.com/in/galih-aji-arganata-0b3923100/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://freetoday.framer.website/" target="_blank" rel="noopener">Free Mockups</a>
+    </nav>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  </div>
 </footer>
 
 <script src="script.js"></script>
