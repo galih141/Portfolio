@@ -251,4 +251,21 @@
   document.addEventListener('keydown', e => {
     if (lightbox.classList.contains('open') && e.key === 'Escape') closeLightbox();
   });
+
+  // ---------- theme toggle ----------
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  function updateToggleLabel() {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+  }
+  updateToggleLabel();
+
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateToggleLabel();
+  });
 })();
