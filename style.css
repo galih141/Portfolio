@@ -144,9 +144,10 @@ button { font-family: inherit; }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--grey);
 }
-.project-card__body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.project-card__body { padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.project-card__num { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--orange); }
 .project-card__title { font-family: var(--font-body); font-weight: 800; font-size: 16px; text-transform: none; }
-.project-card__count { font-family: var(--font-mono); font-size: 11px; color: var(--grey); margin-top: auto; }
+.project-card__cat { font-family: var(--font-mono); font-size: 11px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.04em; margin-top: auto; }
 
 .cat-pill {
   font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
@@ -171,11 +172,64 @@ button { font-family: inherit; }
 .cta-band__alt a { text-decoration: underline; color: var(--paper); }
 .cta-band__alt a:hover { color: var(--orange); }
 
+/* ---------- testimonials ---------- */
+.testimonials-band {
+  background: var(--ink); color: var(--paper); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+}
+.tag-slate--inv { background: var(--paper); color: var(--ink); }
+.tag-slate--inv i { background: var(--orange); }
+.testimonials-band h2 { color: var(--paper); }
+.testimonials-band .section__sub { color: var(--grey); }
+
+.testimonial-card {
+  max-width: 720px; border: 2px solid var(--paper); padding: 32px; position: relative; min-height: 140px;
+}
+.testimonial-quote-mark {
+  font-family: var(--font-display); font-size: 48px; color: var(--orange); line-height: 1; display: block; margin-bottom: 8px;
+}
+.testimonial-text { font-size: 17px; color: var(--paper); margin-bottom: 18px; min-height: 52px; }
+.testimonial-meta {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--grey);
+}
+.testimonial-meta #testimonialName { color: var(--paper); font-weight: 700; }
+.testimonial-stars { color: var(--orange); }
+
+.testimonial-controls { display: flex; align-items: center; gap: 14px; margin-top: 20px; }
+.testimonial-nav {
+  width: 40px; height: 40px; border: 2px solid var(--paper); background: transparent; color: var(--paper);
+  font-size: 20px; cursor: pointer; line-height: 1;
+}
+.testimonial-nav:hover { background: var(--orange); border-color: var(--orange); color: var(--ink); }
+.testimonial-count { font-family: var(--font-mono); font-size: 12px; color: var(--grey); }
+
+/* ---------- contact info chips ---------- */
+.contact-info-row { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.info-chip {
+  font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.03em;
+  border: 2px solid var(--paper); color: var(--paper); padding: 8px 14px; text-decoration: none; display: inline-block;
+  background: transparent;
+}
+.info-chip b { color: var(--orange); margin-right: 6px; }
+a.info-chip:hover { background: var(--paper); color: var(--ink); }
+a.info-chip:hover b { color: var(--orange); }
+
 /* footer */
-.site-footer {
-  border-top: 3px solid var(--ink); padding: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+.site-footer { border-top: 3px solid var(--ink); padding: 20px 24px; }
+.site-footer__row {
+  max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
   font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--grey);
 }
+.site-footer__brand { font-weight: 800; color: var(--ink); }
+.site-footer__social { display: flex; gap: 16px; flex-wrap: wrap; }
+.site-footer__social a { text-decoration: none; color: var(--grey); }
+.site-footer__social a:hover { color: var(--orange); }
+.back-to-top {
+  width: 34px; height: 34px; border: 2px solid var(--ink); background: var(--white); color: var(--ink);
+  font-size: 16px; cursor: pointer; line-height: 1;
+}
+.back-to-top:hover { background: var(--orange); }
 
 /* ---------- lightbox ---------- */
 .lightbox {
