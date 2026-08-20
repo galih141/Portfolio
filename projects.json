@@ -1,15 +1,49 @@
 [
   {
     "id": "vere-co",
-    "title": "Vere & Co",
+    "title": "Vere & co",
     "category": "visualization",
-    "description": "Creating visual product, mixed 3D and AI generative images",
+    "description": "Vere & Co. combines AI imagery with 3D objects to create detailed product renders. By integrating AI backgrounds with 3D models, this workflow maintains consistent product dimensions while expanding visual possibilities. It offers a fast, flexible process without losing the real product look.",
     "images": [
-      "projects/vere-co/img-01.jpg",
-      "projects/vere-co/img-02.jpg",
-      "projects/vere-co/img-03.jpg",
-      "projects/vere-co/img-04.jpg",
-      "projects/vere-co/img-05.jpg"
+      "projects/vere-co/img-01.jpg"
+    ],
+    "client": "Personal Project",
+    "year": "2026",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Shader Breakdown: Wine Label Materials",
+        "body": "To achieve realistic label details, I built a custom shader stack starting with a procedural texture for the paper grain base. Using black-and-white masks, I applied bump mapping to drive the embossed logo and gold foil accents, resulting in a crisp, tactile final render."
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-02.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Hybrid Compositing: 3D Asset & AI Backgrounds",
+        "body": "By using simple 3D proxy shapes to match the camera angle and lighting, I place the exact 3D bottle model right into AI-generated scenes for natural shadows and a seamless final look."
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-05.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/vere-co/process-06.jpg"
+      }
     ]
   },
   {
