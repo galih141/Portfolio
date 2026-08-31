@@ -389,13 +389,32 @@
   },
   {
     "id": "3d-sprayer-visualization",
-    "title": "3D Sprayer Visualization",
+    "title": "3d sprayer visualization",
     "category": "visualization",
-    "description": "This project is a 3D sprayer visualization created as a personal design experiment for Freetoday. Built with precise texturing and studio lighting, it highlights product details and material finishes from multiple angles. It serves as a clean commercial asset showcase tailored for portfolio presentation.",
+    "description": "This case study explores a vibrant 3D visualization concept for the Free Today spray container packaging line. Built to break away from traditional monotone product renders, the project leverages hyper-colorful palettes, tactile ribbed textures, and playful geometric podium staging to establish a fresh visual identity.",
     "images": [
-      "projects/3d-sprayer-visualization/img-01.png",
-      "projects/3d-sprayer-visualization/img-02.png",
-      "projects/3d-sprayer-visualization/img-03.png"
+      "projects/3d-sprayer-visualization/img-01.png"
+    ],
+    "client": "Free Today",
+    "year": "2024",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Visual Concept & Process",
+        "body": "I started by 3D modeling the ribbed spray cans, nozzles, and smooth display stands. Next, I added bright matte colors—blue, purple, orange, and yellow—paired with subtle speckled textures for the bases. Finally, I set up the lighting and cameras to capture floating angled views and grounded hero shots that highlight the details and branding."
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-sprayer-visualization/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-sprayer-visualization/process-02.png"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-sprayer-visualization/process-03.png"
+      }
     ]
   },
   {
@@ -450,7 +469,7 @@
     "process": [
       {
         "type": "text",
-        "heading": "Product Features & Freebie Release",
+        "heading": "",
         "body": "Originally crafted as a commercial asset, I released this full pack for free on UI8 to support the creative community. The package includes 22 fully layered Photoshop PSD files rendered at 3K resolution, featuring 3 customizable color finishes (Cosmic Orange, Deep Blue, and Silver), multiple scene perspectives, and easy smart object mapping."
       },
       {
