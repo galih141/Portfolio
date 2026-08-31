@@ -183,61 +183,208 @@
     "id": "freshleaf",
     "title": "Freshleaf",
     "category": "visualization",
-    "description": "Created in collaboration with Widarto Impact, this project features high-fidelity 3D visualizations designed to bring the brand's packaging concept to life.",
+    "description": "Collaborating with Widarto Impact, I created 3D visualizations to bring the fresh rebranded look of Freshleaf to life. The goal was to transform their brand concepts into clean, realistic product showcases for presentation.",
     "images": [
-      "projects/freshleaf/img-01.jpg",
-      "projects/freshleaf/img-02.jpg",
-      "projects/freshleaf/img-03.jpg",
-      "projects/freshleaf/img-04.jpg",
-      "projects/freshleaf/img-05.jpg"
+      "projects/freshleaf/img-01.jpg"
+    ],
+    "client": "WIDARTO IMPACT",
+    "year": "2022",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Model & Layout Setup",
+        "body": "Built efficient low-poly 3D models using actual packaging dimensions to ensure exact real-world scale and fast performance."
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-01.png"
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-02.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Texture Mapping",
+        "body": "Applied the official brand cover graphics directly onto the 3D geometry for clean, accurate product visualization."
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-03.png"
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-05.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-06.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/freshleaf/process-07.jpg"
+      }
     ]
   },
   {
     "id": "serum-pack",
-    "title": "Serum Pack",
+    "title": "Serum pack",
     "category": "mockup",
-    "description": "Created as part of my personal brand Free Today, this project showcases high-fidelity 3D mockups for a serum bottle and its outer packaging.",
+    "description": "Designed as a versatile packaging asset for personal branding and client presentations, this 3D mockup template features an amber dropper bottle paired with a matching paper box on a concrete pedestal.",
     "images": [
-      "projects/serum-pack/img-01.jpg",
-      "projects/serum-pack/img-02.jpg"
+      "projects/serum-pack/img-01.jpg"
+    ],
+    "client": "Free today",
+    "year": "2026",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Process Breakdown",
+        "body": "To make layout customization effortless, I set up custom UV grid masks for precise artwork alignment, used procedural shaders for realistic glass transparency and matte cardboard textures, and finished the scene with soft studio lighting for a clean, photorealistic display."
+      },
+      {
+        "type": "image",
+        "src": "projects/serum-pack/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/serum-pack/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/serum-pack/process-03.jpg"
+      }
     ]
   },
   {
     "id": "alev",
     "title": "Alev",
     "category": "visualization",
-    "description": "Created in collaboration with Widarto Impact, this project features vibrant 3D visualizations developed to showcase the Alev product lineup.",
+    "description": "Working alongside Widarto Impact, I developed 3D product visualizations for Alev to present their brand packaging in clean, realistic settings. The renders turn initial packaging concepts into high-resolution visual assets ready for presentation.",
     "images": [
-      "projects/alev/img-01.jpg",
-      "projects/alev/img-02.jpg",
-      "projects/alev/img-03.jpg",
-      "projects/alev/img-04.jpg",
-      "projects/alev/img-05.jpg"
+      "projects/alev/img-01.jpg"
+    ],
+    "client": "Widarto impact",
+    "year": "2026",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Hybrid Integration: 3D Renders & AI Images",
+        "body": "I matched true-to-scale 3D product renders with AI-generated stock photography using proxy geometry to align perspective and lighting, creating a realistic and consistent final shot."
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-05.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-06.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-07.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/alev/process-08.jpg"
+      }
     ]
   },
   {
     "id": "brendys-by-yuliet-beauty",
-    "title": "Brendys by Yuliet Beauty",
+    "title": "brendys by yuliet beauty",
     "category": "visualization",
     "description": "Created for Brendys by Yuliet Beauty, this project showcases high-fidelity 3D visualizations developed directly alongside the client to bring their beauty packaging concept to life.",
     "images": [
-      "projects/brendys-by-yuliet-beauty/img-01.jpg",
-      "projects/brendys-by-yuliet-beauty/img-02.jpg",
-      "projects/brendys-by-yuliet-beauty/img-03.jpg",
-      "projects/brendys-by-yuliet-beauty/img-04.jpg"
+      "projects/brendys-by-yuliet-beauty/img-01.jpg"
+    ],
+    "client": "Yuliet beauty",
+    "year": "2021",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Process Breakdown",
+        "body": "I modeled the cosmetic jar and floating liquid spheres using clean 3D geometry, applied realistic glass and golden materials, and used dynamic camera positioning to create an engaging product focus."
+      },
+      {
+        "type": "image",
+        "src": "projects/brendys-by-yuliet-beauty/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/brendys-by-yuliet-beauty/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/brendys-by-yuliet-beauty/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/brendys-by-yuliet-beauty/process-04.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/brendys-by-yuliet-beauty/process-05.jpg"
+      }
     ]
   },
   {
     "id": "3d-dualsense-controller-skin-mockup-pack",
-    "title": "3D DualSense Controller Skin Mockup Pack",
+    "title": "3d dualsense controller skin mockup pack",
     "category": "mockup",
-    "description": "This 3D DualSense controller mockup pack allows creators to easily showcase custom skin designs and artwork across multiple angles. Created as a commercial design asset, it is currently available on UI8 for designers and storefront owners.",
+    "description": "The 3D DualSense Controller Mockup Pack is a high-resolution design asset built to help creators display custom controller skins and gaming artwork across clean, customizable angles. Designed with isolated layers and smart object mapping, it offers a seamless way to visualize gaming visuals for portfolio shots, app interfaces, and landing pages.",
     "images": [
-      "projects/3d-dualsense-controller-skin-mockup-pack/img-01.jpg",
-      "projects/3d-dualsense-controller-skin-mockup-pack/img-02.jpg",
-      "projects/3d-dualsense-controller-skin-mockup-pack/img-03.jpg",
-      "projects/3d-dualsense-controller-skin-mockup-pack/img-04.jpg",
-      "projects/3d-dualsense-controller-skin-mockup-pack/img-05.jpg"
+      "projects/3d-dualsense-controller-skin-mockup-pack/img-01.jpg"
+    ],
+    "client": "UI8",
+    "year": "2024",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Product Features & Freebie Release",
+        "body": "Originally built as a commercial asset, I released this pack for free on UI8 to give back to the design community. It includes 24 editable mockups with single and dual controller setups, smart object layers with alignment guidelines, and 20 seamless bonus patterns for quick skin customization."
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-dualsense-controller-skin-mockup-pack/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-dualsense-controller-skin-mockup-pack/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-dualsense-controller-skin-mockup-pack/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-dualsense-controller-skin-mockup-pack/process-04.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Product link",
+        "body": "Download the asset directly on UI8 | https://ui8.net/galih141/products/3d-dualsense-controller"
+      }
     ]
   },
   {
@@ -253,28 +400,80 @@
   },
   {
     "id": "3d-xbox-controller-skin-mockup-pack",
-    "title": "3D Xbox Controller Skin Mockup Pack",
+    "title": "3d xbox controller skin mockup pack",
     "category": "mockup",
-    "description": "This Xbox controller mockup pack comes alongside the DualSense edition to help creators effortlessly showcase custom skin designs and artwork from multiple angles. Created as a commercial design asset, it is currently available on UI8",
+    "description": "The 3D Xbox Controller Mockup Pack complements the DualSense edition, built to help designers display custom skins and gaming artwork from every angle. It features isolated component layers, customizable camera views, and structured layouts tailored for digital product showcases, landing pages, and mobile app concepts.",
     "images": [
-      "projects/3d-xbox-controller-skin-mockup-pack/img-01.jpg",
-      "projects/3d-xbox-controller-skin-mockup-pack/img-02.jpg",
-      "projects/3d-xbox-controller-skin-mockup-pack/img-03.jpg",
-      "projects/3d-xbox-controller-skin-mockup-pack/img-04.jpg",
-      "projects/3d-xbox-controller-skin-mockup-pack/img-05.jpg"
+      "projects/3d-xbox-controller-skin-mockup-pack/img-01.jpg"
+    ],
+    "client": "UI8",
+    "year": "2024",
+    "process": [
+      {
+        "type": "text",
+        "heading": "Product Features & Freebie Release",
+        "body": "Originally designed as a commercial product, I made this pack available for free on UI8 to support the creator community. It features 16 editable mockups covering single and dual controller setups, smart object layers complete with alignment guidelines, and 20 bonus seamless patterns for rapid skin design."
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-xbox-controller-skin-mockup-pack/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-xbox-controller-skin-mockup-pack/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-xbox-controller-skin-mockup-pack/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-xbox-controller-skin-mockup-pack/process-04.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Product Link",
+        "body": "Download the asset directly on UI8 | https://ui8.net/galih141/products/3d-xbox-controller"
+      }
     ]
   },
   {
     "id": "3d-iphone-17-pro-mockup-pack",
-    "title": "3D iPhone 17 Pro Mockup Pack",
+    "title": "3d iphone 17 pro mockup pack",
     "category": "mockup",
-    "description": "This 3D iPhone 17 Pro mockup pack is designed to help creators effortlessly present mobile app UI, branding, and digital artwork. Created as a commercial design asset, it is currently available on UI8",
+    "description": "This 3D iPhone 17 Pro mockup pack is designed to help creators effortlessly present mobile app UI, branding, and digital artwork across sleek, modern device angles. Built with structured layers and simple drag-and-drop integration, it provides an ideal framework for showcasing mobile app designs across client presentations, App Store previews, and portfolio case studies.",
     "images": [
-      "projects/3d-iphone-17-pro-mockup-pack/img-01.jpg",
-      "projects/3d-iphone-17-pro-mockup-pack/img-02.jpg",
-      "projects/3d-iphone-17-pro-mockup-pack/img-03.jpg",
-      "projects/3d-iphone-17-pro-mockup-pack/img-04.jpg",
-      "projects/3d-iphone-17-pro-mockup-pack/img-05.jpg"
+      "projects/3d-iphone-17-pro-mockup-pack/img-01.jpg"
+    ],
+    "client": "UI8",
+    "year": "2025",
+    "process": [
+      {
+        "type": "text",
+        "heading": "",
+        "body": "Originally crafted as a commercial asset, I released this full pack for free on UI8 to support the creative community. The package includes 22 fully layered Photoshop PSD files rendered at 3K resolution, featuring 3 customizable color finishes (Cosmic Orange, Deep Blue, and Silver), multiple scene perspectives, and easy smart object mapping."
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-iphone-17-pro-mockup-pack/process-01.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-iphone-17-pro-mockup-pack/process-02.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-iphone-17-pro-mockup-pack/process-03.jpg"
+      },
+      {
+        "type": "image",
+        "src": "projects/3d-iphone-17-pro-mockup-pack/process-04.jpg"
+      },
+      {
+        "type": "text",
+        "heading": "Product Link",
+        "body": "Download 22 Free Mockups on UI8 | https://ui8.net/galih141/products/iphone-17-pro-mockup-megapack--55-premium-views\nDownload Full 55 Mockup Collection | https://freetoday.framer.website/product-iphone-17-pro"
+      }
     ]
   }
 ]
