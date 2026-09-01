@@ -494,5 +494,175 @@
         "body": "Download 22 Free Mockups on UI8 | https://ui8.net/galih141/products/iphone-17-pro-mockup-megapack--55-premium-views\nDownload Full 55 Mockup Collection | https://freetoday.framer.website/product-iphone-17-pro"
       }
     ]
+  },
+  {
+    "id": "e-commerce-pack",
+    "title": "E-Commerce Pack",
+    "category": "element",
+    "description": "A vibrant 3D asset collection crafted to elevate online storefronts, featuring cute shopping carts, high-energy delivery boxes, digital wallets, and checkout essentials.",
+    "images": [
+      "projects/e-commerce-pack/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/e-commerce-pack/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cute-frame-element",
+    "title": "Cute Frame Element",
+    "category": "element",
+    "description": "A playful set of colorful, whimsical 3D photo frames packed with stars, flowers, and squiggly borders to instantly pop on social media layouts.",
+    "images": [
+      "projects/cute-frame-element/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/cute-frame-element/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "polution-pack",
+    "title": "Polution Pack",
+    "category": "element",
+    "description": "A bold, narrative-driven 3D set tackling environmental topics through eye-catching smog clouds, biohazard drums, gas masks, and eco-awareness icons.",
+    "images": [
+      "projects/polution-pack/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/polution-pack/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "programing-icons-element",
+    "title": "Programing Icons Element",
+    "category": "element",
+    "description": "A slick, modern 3D icon suite built for tech platforms, highlighting modern code blocks, AI chips, bug reports, and developer tools.",
+    "images": [
+      "projects/programing-icons-element/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/programing-icons-element/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "sales-badges",
+    "title": "Sales Badges",
+    "category": "element",
+    "description": "A high-impact 3D sticker collection designed to boost conversion rates with energetic callouts like \"50% OFF,\" \"FLASH SALE,\" and \"LIMITED OFFER.\"",
+    "images": [
+      "projects/sales-badges/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2026",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/sales-badges/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "valentine-pack",
+    "title": "Valentine Pack",
+    "category": "element",
+    "description": "A charming, heart-filled 3D illustration kit brimming with romantic love letters, sweet treats, locked hearts, and whimsical gift decor.",
+    "images": [
+      "projects/valentine-pack/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/valentine-pack/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "marketing-character-pack",
+    "title": "Marketing Character Pack",
+    "category": "element",
+    "description": "A dynamic 3D character series featuring an approachable professional presenting SEO analytics, digital strategies, and growth charts.",
+    "images": [
+      "projects/marketing-character-pack/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2025",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/marketing-character-pack/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "back-to-school-pack",
+    "title": "Back to School Pack",
+    "category": "element",
+    "description": "A cheerful 3D stationery pack filled with vibrant backpacks, notebooks, colorful crayons, and essential classroom tools to spark creativity.",
+    "images": [
+      "projects/back-to-school-pack/img-01.jpg"
+    ],
+    "client": "UI8 & Iconscout",
+    "year": "2024",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/back-to-school-pack/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "vegie-kit",
+    "title": "Vegie Kit",
+    "category": "element",
+    "description": "A fresh, appetizing set of smooth 3D garden vegetables, including crisp broccoli, sweet corn, garlic, and bright peppers for health-focused designs.",
+    "images": [
+      "projects/vegie-kit/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2024",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/vegie-kit/process-01.jpg"
+      }
+    ]
+  },
+  {
+    "id": "primitive-weapon-kit",
+    "title": "Primitive Weapon Kit",
+    "category": "element",
+    "description": "A rugged, playful 3D adventure set featuring stone axes, wooden clubs, primitive spears, and survival tools for creative game assets.",
+    "images": [
+      "projects/primitive-weapon-kit/img-01.jpg"
+    ],
+    "client": "Iconscout",
+    "year": "2024",
+    "process": [
+      {
+        "type": "image",
+        "src": "projects/primitive-weapon-kit/process-01.jpg"
+      }
+    ]
   }
 ]
