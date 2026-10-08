@@ -7,121 +7,532 @@
 <meta name="description" content="Galih Aji Arganata — 3D designer, 10+ years experience. 3D visualization, mockups, and 3D elements for brands and marketplaces.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
   (function () {
     var saved = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', saved || 'light');
   })();
 </script>
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --surface: #FFFFFF;
+    --ink: #000000;
+    --muted: #5A5A5A;
+    --line: rgba(0,0,0,0.10);
+    --blue: #3772FF;
+    --orange: #FF7A1A;
+    --yellow: #FFC93C;
+    --red: #FF4B3E;
+    --green: #34A853;
+    --purple: #A78BFA;
+    --brown: #8B5E34;
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-hand: 'Kalam', cursive;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html[data-theme="dark"] {
+    --paper: #000000;
+    --surface: #141414;
+    --ink: #FFFFFF;
+    --muted: #A8A8A8;
+    --line: rgba(255,255,255,0.12);
+    --blue: #6E93FF;
+    --orange: #FF9A4D;
+    --yellow: #FFD666;
+    --red: #FF7268;
+    --green: #5FC786;
+    --purple: #B7A2FF;
+    --brown: #B3895D;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: 100% 34px;
+  }
+
+  a { color: inherit; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  button { font-family: inherit; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; }
+  .section { padding: 88px 0; position: relative; }
+
+  /* header */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; background: color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 2px solid var(--ink);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-logo { width: 30px; height: 30px; display: block; }
+
+  .site-nav { display: flex; align-items: center; gap: 6px; }
+  .nav-link {
+    font-size: 14px; font-weight: 700; text-decoration: none; color: var(--ink);
+    padding: 9px 18px; border-radius: 999px; border: 2px solid transparent;
+    transition: border-color 0.12s ease, background 0.12s ease;
+  }
+  .nav-link:hover { border-color: var(--ink); background: var(--surface); }
+
+  .nav-cta {
+    font-size: 13px; font-weight: 700;
+    text-decoration: none; background: var(--surface); color: var(--ink);
+    border: 2px solid var(--ink); padding: 9px 18px; border-radius: 999px;
+    cursor: pointer; box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  }
+  .nav-cta:hover { background: var(--yellow); transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+
+  /* hero */
+  .hero { padding: 72px 0 64px; overflow: visible; }
+  .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+
+  .hand-note {
+    font-family: var(--font-hand); font-size: 18px; color: var(--ink);
+    display: block; margin: 0 0 20px;
+  }
+  .meta-label { color: var(--red); font-weight: 700; }
+
+  .name-box {
+    display: inline-block; border: 3px solid var(--ink); border-radius: var(--radius-md);
+    padding: 16px 30px; transform: rotate(-1deg); background: var(--surface);
+    box-shadow: 7px 7px 0 var(--ink); margin-bottom: 26px;
+  }
+  .name-box h1 {
+    font-family: var(--font-display); font-size: clamp(30px, 4.6vw, 50px);
+    margin: 0; letter-spacing: -0.01em; line-height: 1.05;
+  }
+
+  .hero__bio { font-size: 16px; color: var(--muted); max-width: 56ch; margin: 0 0 30px; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+  .chip {
+    font-size: 13px; font-weight: 700;
+    color: var(--ink); border: 2px solid var(--ink);
+    padding: 8px 15px; border-radius: 999px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .chip:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+  .chip--blue { background: var(--blue); color: #fff; }
+  .chip--yellow { background: var(--yellow); color: var(--ink); }
+  .chip--green { background: var(--green); color: #fff; }
+
+  .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-weight: 700; font-size: 14px;
+    text-decoration: none; padding: 15px 26px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--ink); }
+  .btn:active { transform: translate(0,0); box-shadow: 2px 2px 0 var(--ink); }
+  .btn--fill { background: var(--red); color: #fff; }
+  .btn--outline { background: var(--surface); color: var(--ink); }
+
+  /* hero visual blob */
+  .hero__visual {
+    position: relative; aspect-ratio: 1 / 1.05; background: var(--green);
+    border: 3px solid var(--ink);
+    border-radius: 56px;
+    box-shadow: 10px 12px 0 var(--ink);
+  }
+  .hero__visual .float-icon { position: absolute; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25)); }
+
+  /* section head */
+  .section__topbar { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; position: relative; z-index: 2; }
+  .section__head { max-width: 560px; }
+  .section__head h2 { font-family: var(--font-display); font-size: clamp(26px, 3.6vw, 38px); margin-bottom: 10px; letter-spacing: -0.01em; }
+  .section__sub { color: var(--muted); font-size: 15px; }
+
+  /* filter tabs */
+  .filter-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .filter-btn {
+    font-weight: 700; font-size: 13px;
+    border: 2px solid var(--ink); background: var(--surface); color: var(--ink);
+    padding: 9px 17px; border-radius: 999px; cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .filter-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+  .filter-btn.active { background: var(--ink); color: var(--paper); }
+
+  /* project grid */
+  .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; position: relative; z-index: 2; }
+  .project-card {
+    background: var(--surface); border: 2px solid var(--ink); border-radius: var(--radius-lg);
+    overflow: hidden; cursor: pointer; box-shadow: 6px 6px 0 var(--ink);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    display: flex; flex-direction: column; position: relative;
+  }
+  .project-card:hover { transform: translate(-3px,-5px); box-shadow: 9px 11px 0 var(--ink); }
+  .project-card__cover { aspect-ratio: 4/3; border-bottom: 2px solid var(--ink); }
+  .project-card__body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .project-card__title { font-weight: 800; font-size: 16px; letter-spacing: -0.01em; }
+  .cat-pill {
+    align-self: flex-start; font-size: 11px; font-weight: 700;
+    border: 2px solid var(--ink); padding: 4px 10px; border-radius: 999px; color: var(--ink);
+  }
+  .cat-pill[data-cat="visualization"] { background: var(--blue); color: #fff; }
+  .cat-pill[data-cat="mockup"] { background: var(--yellow); }
+  .cat-pill[data-cat="element"] { background: var(--green); color: #fff; }
+
+  .empty-state {
+    border: 2px dashed var(--ink); border-radius: var(--radius-lg); padding: 56px; text-align: center;
+    font-size: 13px; color: var(--muted); position: relative; z-index: 2;
+  }
+
+  /* contact — purple band */
+  .cta-band {
+    background: linear-gradient(120deg, #C9B8FF, var(--purple) 55%, #8B6BF0);
+    color: var(--ink); border: 3px solid var(--ink);
+    border-radius: var(--radius-lg); padding: 40px 44px;
+    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+    box-shadow: 8px 8px 0 var(--ink); position: relative; z-index: 2;
+  }
+  .cta-band__title { display: flex; align-items: flex-start; gap: 10px; flex: 0 0 auto; }
+  .cta-band__title .arrow {
+    width: 26px; height: 26px; border: 2.5px solid var(--ink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 4px;
+    background: var(--surface);
+  }
+  .cta-band h3 { font-family: var(--font-display); font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -0.01em; max-width: 9ch; line-height: 1.15; }
+  .cta-band__text { flex: 1 1 260px; font-size: 15px; color: var(--ink); opacity: 0.85; max-width: 40ch; }
+  .btn--dark {
+    background: var(--ink); color: var(--paper); border-color: var(--ink); flex: 0 0 auto;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.35); padding-right: 8px;
+  }
+  .btn--dark:hover { box-shadow: 6px 6px 0 rgba(0,0,0,0.35); }
+  .btn--dark .arrow-badge {
+    width: 30px; height: 30px; border-radius: 50%; background: var(--paper); color: var(--ink);
+    display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+  }
+
+  /* footer */
+  .site-footer { padding: 32px 24px; border-top: 2px solid var(--ink); position: relative; z-index: 2; }
+  .site-footer__row {
+    max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .site-footer__brand-block { display: flex; align-items: center; gap: 12px; }
+  .site-footer__brand-block .brand-logo { width: 26px; height: 26px; }
+  .site-footer__copy { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .site-footer__social { display: flex; align-items: center; gap: 16px; }
+  .site-footer__social a {
+    width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: transform 0.12s ease, opacity 0.12s ease;
+  }
+  .site-footer__social a img { width: 100%; height: 100%; object-fit: contain; }
+  .site-footer__social a:hover { transform: translateY(-2px); opacity: 0.8; }
+  .site-footer__status { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); text-align: right; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .site-footer__status-text { line-height: 1.4; }
+  .site-footer__globe { font-size: 18px; }
+
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__visual { max-width: 420px; margin: 0 auto; }
+    .project-grid { grid-template-columns: repeat(2, 1fr); }
+    .site-nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .section { padding: 60px 0; }
+    .site-header { padding: 14px 16px; }
+    .hero { padding: 56px 0 48px; }
+    .cta-band { flex-direction: column; align-items: flex-start; text-align: left; }
+    .site-footer__row { flex-direction: column; align-items: flex-start; }
+    .site-footer__status { text-align: left; }
+  }
+</style>
 </head>
 <body>
 
 <header class="site-header">
   <a href="#top" class="brand">
-    <svg class="brand-logo" viewBox="0 0 604 604" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg class="brand-logo" viewBox="0 0 604 604" xmlns="http://www.w3.org/2000/svg">
       <g transform="matrix(1,0,0,1,-10291.828509,-137.758951)">
         <g transform="matrix(0.494108,0,0,0.494108,4849.12655,63.777045)">
-          <rect x="11015.204" y="149.728" width="1222.109" height="1222.109" style="fill:none;"/>
           <g transform="matrix(2.466406,0,0,2.466406,10751.063427,-61.380818)">
             <path d="M345.499,209.041C323.486,210.377 325.137,224.012 317.638,256.532C307.068,302.369 286.191,406.568 278.299,442.459C274.822,458.269 287.983,460.779 291.484,460.858C296.194,460.965 344.887,462.064 350.368,460.107C359.323,456.908 357.754,454.447 366.844,416.584C367.86,412.354 378.692,367.229 378.686,363.501C378.675,357.382 374.306,358.867 340.493,358.73C335.85,358.711 338.147,354.39 343.828,329.559C351.247,297.135 349.915,295.144 353.459,295.067C419.011,293.65 418.966,296.348 484.498,295.064C488.292,294.989 487.189,297.118 484.32,308.45C481.734,318.665 482.324,318.796 453.302,436.456C441.349,484.916 442.195,485.046 430.057,533.39C429.949,533.817 428.85,538.195 427.459,538.241C420.337,538.475 234.298,538.283 217.501,538.265C173.47,538.22 149.714,505.968 158.706,463.555C164.02,438.489 198.527,266.712 201.966,249.59C210.302,208.092 213.731,170.247 254.771,143.929C283.985,125.196 304.362,127.79 363.497,127.878C509.828,128.096 510.384,127.416 511.141,128.68C511.458,129.209 511.183,129.266 499.361,156.439C497.549,160.604 477.237,207.29 476.31,208.321C475.44,209.29 475.133,208.846 345.499,209.041Z" style="fill:var(--ink);"/>
-            <path d="M461.913,498.613C473.152,464.16 473.585,464.153 474.562,463.891C476.18,463.458 545.323,463.776 551.476,463.804C554.552,463.818 551.778,469.668 550.454,473.485C550.006,474.775 545.692,487.203 544.89,489.629C543.628,493.444 529.751,535.412 529.004,537.271C528.289,539.049 526.63,538.615 496.5,538.648C451.813,538.697 448.751,540.155 449.761,536.551C449.803,536.401 460.941,501.648 461.913,498.613Z" style="fill:rgb(253,55,2);"/>
+            <path d="M461.913,498.613C473.152,464.16 473.585,464.153 474.562,463.891C476.18,463.458 545.323,463.776 551.476,463.804C554.552,463.818 551.778,469.668 550.454,473.485C550.006,474.775 545.692,487.203 544.89,489.629C543.628,493.444 529.751,535.412 529.004,537.271C528.289,539.049 526.63,538.615 496.5,538.648C451.813,538.697 448.751,540.155 449.761,536.551C449.803,536.401 460.941,501.648 461.913,498.613Z" style="fill:var(--red);"/>
           </g>
         </g>
       </g>
     </svg>
   </a>
-  <button id="themeToggle" class="nav-cta theme-toggle" aria-label="Toggle dark mode" type="button">Dark Mode</button>
+
+  <nav class="site-nav">
+    <a href="#top" class="nav-link">About</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="nav-cta">Hire me</a>
 </header>
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <h1 class="hero__title">GALIH AJI<br>ARGANATA</h1>
+  <section class="hero wrap">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <div class="name-box">
+          <h1>GALIH AJI<br>ARGANATA</h1>
+        </div>
+        <p class="hand-note"><span class="meta-label">ROLE</span> 3D Designer &nbsp;|&nbsp; <span class="meta-label">FOCUS</span> Visualization / Mockup / 3D Elements</p>
+        <p class="hero__bio">
+          Hi, I'm Galih — a 3D designer with 10+ years of experience. I create high-impact product visualizations, professional mockups, and 3D elements for digital marketplaces. Backed by top-rated service on Fastwork, I bring your ideas to life with results clients love to return for.
+        </p>
 
-    <div class="hero__meta">
-      <span><b>ROLE</b> 3D Designer</span>
-      <span><b>FOCUS</b> Visualization / Mockup / 3D Elements</span>
-    </div>
+        <div class="chip-row">
+          <span class="chip chip--yellow">10+ Years Experience</span>
+          <a class="chip chip--blue" href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener">IMDb Credited Artist</a>
+          <a class="chip chip--green" href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener">74+ Orders on Fastwork</a>
+        </div>
 
-    <p class="hero__bio">
-      Hi, I'm Galih — a 3D designer with 10+ years of experience. I create high-impact product visualizations, professional mockups, and 3D elements for digital marketplaces. Backed by top-rated service on Fastwork, I bring your ideas to life with results clients love to return for.
-    </p>
-
-    <div class="hero__strip">
-      <span><b>10+</b> Years Experience</span>
-      <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener"><b>IMDb</b> Credited Artist</a>
-      <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener"><b>74+</b> Orders on Fastwork</a>
-    </div>
-
-    <div class="hero__actions">
-      <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
-      <a href="mailto:ga.arganata@gmail.com" class="btn btn--outline">Email Instead</a>
-    </div>
-  </section>
-
-  <!-- ============ WORK ============ -->
-  <section id="work" class="section">
-    <div class="section__head">
-      <div class="tag-slate"><i></i>SELECTED WORK</div>
-      <h2>What I Can Build For You</h2>
-      <p class="section__sub">Tap any project to see the full set of images and the story behind it.</p>
-    </div>
-
-    <div class="filter-row" id="filterRow">
-      <button class="filter-btn active" data-cat="all">All</button>
-      <button class="filter-btn" data-cat="visualization">3D Visualization</button>
-      <button class="filter-btn" data-cat="mockup">Mockup</button>
-      <button class="filter-btn" data-cat="element">3D Element</button>
-    </div>
-
-    <div id="projectGrid" class="bento project-grid"></div>
-    <div id="emptyState" class="empty-state" style="display:none;">
-      No projects here yet — check back soon.
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="section contact">
-    <div class="cta-band">
-      <div class="cta-band__left">
-        <h3>Have a project in mind? Let's build it.</h3>
-        <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
+        <div class="hero__actions">
+          <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--fill">Chat on WhatsApp</a>
+          <a href="mailto:ga.arganata@gmail.com" class="btn btn--outline">Email Instead</a>
+        </div>
       </div>
-      <ul class="cta-info-list">
-        <li><i></i><div><b>Email</b><a href="mailto:ga.arganata@gmail.com">ga.arganata@gmail.com</a></div></li>
-        <li><i></i><div><b>Based In</b><span>Malang, Indonesia</span></div></li>
-        <li><i></i><div><b>Status</b><span>Open to freelance, full-time &amp; relocation</span></div></li>
-      </ul>
+
+      <div class="hero__visual" aria-hidden="true">
+        <img class="float-icon" src="assets/Paintbrush.png" alt="" style="width:30%; top:10%; left:10%; transform:rotate(-14deg);">
+        <img class="float-icon" src="assets/Palete.png" alt="" style="width:38%; bottom:16%; left:6%; transform:rotate(6deg);">
+        <img class="float-icon" src="assets/Pencils.png" alt="" style="width:32%; top:16%; right:8%; transform:rotate(10deg);">
+        <img class="float-icon" src="assets/Notebook.png" alt="" style="width:30%; bottom:10%; right:10%; transform:rotate(-8deg);">
+        <img class="float-icon" src="assets/Dna.png" alt="" style="width:26%; top:42%; left:38%; transform:rotate(4deg);">
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section wrap">
+    <div class="section__topbar">
+      <div class="section__head">
+        <h2>What I Can Build For You</h2>
+        <p class="section__sub">Tap any card to see the full set of images and the story behind it.</p>
+      </div>
+
+      <div class="filter-row" id="filterRow">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="visualization">3D Visualization</button>
+        <button class="filter-btn" data-cat="mockup">Mockup</button>
+        <button class="filter-btn" data-cat="element">3D Element</button>
+      </div>
+    </div>
+
+    <div id="projectGrid" class="project-grid"></div>
+    <div id="emptyState" class="empty-state" style="display:none;">No projects here yet — check back soon.</div>
+  </section>
+
+  <section id="contact" class="section wrap">
+    <div class="cta-band">
+      <div class="cta-band__title">
+        <span class="arrow">↗</span>
+        <h3>Have a project in mind?</h3>
+      </div>
+      <p class="cta-band__text">Let's build it together! I'm open for freelance, full-time opportunities or just a friendly chat about creative ideas.</p>
+      <a href="https://wa.me/6285649736324" target="_blank" rel="noopener" class="btn btn--dark">Get in touch<span class="arrow-badge">→</span></a>
     </div>
   </section>
 
 </main>
 
-<!-- ============ LIGHTBOX ============ -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox__panel" id="lightboxPanel">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
-    <div id="lightboxContent"><!-- filled by script.js --></div>
+<div class="lightbox" id="lightbox" aria-hidden="true" style="position:fixed; inset:0; background:rgba(0,0,0,0.82); z-index:100; display:none; align-items:center; justify-content:center; padding:24px;">
+  <div class="lightbox__panel" id="lightboxPanel" style="background:var(--paper); border:2px solid var(--ink); border-radius:var(--radius-lg); max-width:680px; width:100%; max-height:88vh; overflow-y:auto; position:relative; box-shadow:9px 9px 0 var(--blue);">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close" style="position:sticky; top:14px; float:right; margin-right:14px; z-index:5; width:40px; height:40px; border-radius:50%; background:var(--ink); color:var(--paper); border:2px solid var(--ink); font-size:20px; line-height:1; cursor:pointer;">×</button>
+    <div id="lightboxContent"></div>
   </div>
 </div>
 
 <footer class="site-footer">
   <div class="site-footer__row">
-    <span class="site-footer__brand">GALIH.3D</span>
-    <span class="site-footer__copy">© 2026 Galih Aji Arganata. All rights reserved.</span>
+    <div class="site-footer__brand-block">
+      <svg class="brand-logo" viewBox="0 0 604 604" xmlns="http://www.w3.org/2000/svg">
+        <g transform="matrix(1,0,0,1,-10291.828509,-137.758951)">
+          <g transform="matrix(0.494108,0,0,0.494108,4849.12655,63.777045)">
+            <g transform="matrix(2.466406,0,0,2.466406,10751.063427,-61.380818)">
+              <path d="M345.499,209.041C323.486,210.377 325.137,224.012 317.638,256.532C307.068,302.369 286.191,406.568 278.299,442.459C274.822,458.269 287.983,460.779 291.484,460.858C296.194,460.965 344.887,462.064 350.368,460.107C359.323,456.908 357.754,454.447 366.844,416.584C367.86,412.354 378.692,367.229 378.686,363.501C378.675,357.382 374.306,358.867 340.493,358.73C335.85,358.711 338.147,354.39 343.828,329.559C351.247,297.135 349.915,295.144 353.459,295.067C419.011,293.65 418.966,296.348 484.498,295.064C488.292,294.989 487.189,297.118 484.32,308.45C481.734,318.665 482.324,318.796 453.302,436.456C441.349,484.916 442.195,485.046 430.057,533.39C429.949,533.817 428.85,538.195 427.459,538.241C420.337,538.475 234.298,538.283 217.501,538.265C173.47,538.22 149.714,505.968 158.706,463.555C164.02,438.489 198.527,266.712 201.966,249.59C210.302,208.092 213.731,170.247 254.771,143.929C283.985,125.196 304.362,127.79 363.497,127.878C509.828,128.096 510.384,127.416 511.141,128.68C511.458,129.209 511.183,129.266 499.361,156.439C497.549,160.604 477.237,207.29 476.31,208.321C475.44,209.29 475.133,208.846 345.499,209.041Z" style="fill:var(--ink);"/>
+              <path d="M461.913,498.613C473.152,464.16 473.585,464.153 474.562,463.891C476.18,463.458 545.323,463.776 551.476,463.804C554.552,463.818 551.778,469.668 550.454,473.485C550.006,474.775 545.692,487.203 544.89,489.629C543.628,493.444 529.751,535.412 529.004,537.271C528.289,539.049 526.63,538.615 496.5,538.648C451.813,538.697 448.751,540.155 449.761,536.551C449.803,536.401 460.941,501.648 461.913,498.613Z" style="fill:var(--red);"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="site-footer__copy">© 2026 Galih Aji Arganata<br>All rights reserved.</div>
+    </div>
+
     <nav class="site-footer__social">
-      <a href="https://fastwork.id/user/galih141/3d-animation-23440449" target="_blank" rel="noopener">Fastwork</a>
-      <a href="https://www.imdb.com/name/nm11562163/" target="_blank" rel="noopener">IMDb</a>
-      <a href="https://www.linkedin.com/in/galih-aji-arganata-0b3923100/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://freetoday.framer.website/" target="_blank" rel="noopener">Free Mockups</a>
+      <a href="https://fastwork.id/user/galih141" target="_blank" rel="noopener" aria-label="Fastwork"><img src="assets/Fastwork.svg" alt="Fastwork"></a>
+      <a href="https://www.linkedin.com/in/galih-aji-arganata-0b3923100/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/Linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://ui8.net/users/galih141" target="_blank" rel="noopener" aria-label="UI8"><img src="assets/UI8.svg" alt="UI8"></a>
+      <a href="https://iconscout.com/contributors/galih141" target="_blank" rel="noopener" aria-label="Iconscout"><img src="assets/Iconscout.svg" alt="Iconscout"></a>
+      <a href="https://freetoday.framer.website" target="_blank" rel="noopener" aria-label="Free Today"><img src="assets/Freetoday.svg" alt="Free Today"></a>
     </nav>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <div class="site-footer__status">
+      <div class="site-footer__status-text">
+        <span class="status-dot" style="display:inline-block; margin-right:6px;"></span>Based in Malang, Indonesia<br>Open to remote work worldwide
+      </div>
+      <span class="site-footer__globe">🌐</span>
+    </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+(() => {
+  const catLabels = { visualization: '3D Visualization', mockup: 'Mockup', element: '3D Element' };
+  const catBg = { visualization: '#E4ECFF', mockup: '#FFF3D6', element: '#E1F5E6' };
+
+  // Sample data for preview only — will be replaced by projects.json when wired up
+  const projects = [
+    { title: 'Skincare Bottle Render', category: 'visualization', client: 'Aurelia Beauty', year: '2025', description: 'Photoreal product render for a skincare launch campaign, built for e-commerce and paid social.' },
+    { title: 'App Icon Mockup Set', category: 'mockup', client: 'Northline Studio', year: '2025', description: 'A layered mockup kit showing the app across devices for a marketplace listing page.' },
+    { title: 'Isometric Room Element', category: 'element', client: 'Personal', year: '2024', description: 'A modular isometric room element built for use in marketing decks and landing pages.' },
+    { title: 'Sneaker Product Shots', category: 'visualization', client: 'Kilat Footwear', year: '2025', description: 'Studio-style 3D renders replacing physical product photography for a full sneaker line.' },
+    { title: 'Coffee Bag Packshot', category: 'mockup', client: 'Kopi Senja', year: '2024', description: 'Packaging mockup used across the brand\u2019s Instagram and web storefront.' },
+    { title: 'Low-poly Icon Pack', category: 'element', client: 'Personal', year: '2024', description: 'A set of low-poly 3D icons designed for a UI element marketplace.' },
+  ];
+
+  const grid = document.getElementById('projectGrid');
+  const emptyState = document.getElementById('emptyState');
+  const filterRow = document.getElementById('filterRow');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxPanel = document.getElementById('lightboxPanel');
+  const lightboxContent = document.getElementById('lightboxContent');
+  const lbClose = document.getElementById('lightboxClose');
+  let activeCategory = 'all';
+
+  function renderGrid() {
+    const filtered = activeCategory === 'all' ? projects : projects.filter(p => p.category === activeCategory);
+    grid.innerHTML = '';
+    if (!filtered.length) { emptyState.style.display = 'block'; return; }
+    emptyState.style.display = 'none';
+
+    filtered.forEach(proj => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Open project: ${proj.title}`);
+
+      const cover = document.createElement('div');
+      cover.className = 'project-card__cover';
+      cover.style.background = catBg[proj.category] || catBg.mockup;
+      card.appendChild(cover);
+
+      const body = document.createElement('div');
+      body.className = 'project-card__body';
+      const title = document.createElement('div');
+      title.className = 'project-card__title';
+      title.textContent = proj.title;
+      const cat = document.createElement('span');
+      cat.className = 'cat-pill';
+      cat.dataset.cat = proj.category;
+      cat.textContent = catLabels[proj.category] || proj.category;
+      body.appendChild(title);
+      body.appendChild(cat);
+      card.appendChild(body);
+
+      const open = () => openLightbox(proj);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      grid.appendChild(card);
+    });
+  }
+
+  filterRow.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterRow.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCategory = btn.dataset.cat;
+    renderGrid();
+  });
+
+  function openLightbox(proj) {
+    lightboxContent.innerHTML = '';
+    const cover = document.createElement('div');
+    cover.style.background = catBg[proj.category] || catBg.mockup;
+    cover.style.aspectRatio = '16/9';
+    cover.style.borderBottom = '2px solid var(--ink)';
+    cover.style.borderRadius = 'calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0';
+    lightboxContent.appendChild(cover);
+
+    const header = document.createElement('div');
+    header.style.padding = '26px 30px 6px';
+    const h2 = document.createElement('h2');
+    h2.style.fontFamily = 'var(--font-display)';
+    h2.style.fontSize = 'clamp(20px, 3.6vw, 26px)';
+    h2.style.marginBottom = '10px';
+    h2.style.letterSpacing = '-0.01em';
+    h2.textContent = proj.title;
+    header.appendChild(h2);
+    const meta = document.createElement('div');
+    meta.style.fontSize = '12px';
+    meta.style.color = 'var(--muted)';
+    meta.style.fontWeight = '600';
+    const parts = [catLabels[proj.category] || proj.category];
+    if (proj.client) parts.push(`Client: ${proj.client}`);
+    if (proj.year) parts.push(`Year: ${proj.year}`);
+    meta.textContent = parts.join('   ·   ');
+    header.appendChild(meta);
+    lightboxContent.appendChild(header);
+
+    if (proj.description) {
+      const overview = document.createElement('div');
+      overview.style.padding = '20px 30px';
+      const h3 = document.createElement('h3');
+      h3.style.fontSize = '12px';
+      h3.style.fontWeight = '700';
+      h3.style.color = 'var(--red)';
+      h3.style.marginBottom = '8px';
+      h3.textContent = 'Overview';
+      const p = document.createElement('p');
+      p.style.fontSize = '15px';
+      p.style.color = 'var(--muted)';
+      p.textContent = proj.description;
+      overview.appendChild(h3);
+      overview.appendChild(p);
+      lightboxContent.appendChild(overview);
+    }
+
+    lightbox.style.display = 'flex';
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightboxPanel.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (lightbox.style.display === 'flex' && e.key === 'Escape') closeLightbox(); });
+
+  renderGrid();
+})();
+</script>
 </body>
 </html>
