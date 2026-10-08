@@ -158,6 +158,17 @@
   }
   .hero__visual .float-icon { position: absolute; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25)); }
 
+  /* featured project highlight inside the hero square */
+  .hero__highlight { position: absolute; inset: 0; border-radius: 53px; overflow: hidden; cursor: pointer; z-index: 3; background: var(--surface); }
+  .hero__highlight img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero__highlight-tag {
+    position: absolute; left: 18px; bottom: 18px; max-width: calc(100% - 36px);
+    background: var(--surface); color: var(--ink); border: 2px solid var(--ink); border-radius: 999px;
+    padding: 7px 14px; font-size: 13px; font-weight: 700; box-shadow: 3px 3px 0 var(--ink);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .hero__visual.has-highlight .float-icon { display: none; }
+
   /* section head */
   .section__topbar { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; position: relative; z-index: 2; }
   .section__head { max-width: 560px; }
@@ -434,13 +445,51 @@
   // ---------- load real data from projects.json ----------
   fetch('projects.json', { cache: 'no-store' })
     .then(res => { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
-    .then(data => { projects = Array.isArray(data) ? data : []; renderGrid(); })
+    .then(data => { projects = Array.isArray(data) ? data : []; renderGrid(); showHighlight(); })
     .catch(err => {
       console.error('Could not load projects.json:', err);
       projects = [];
       emptyState.textContent = "Projects couldn't be loaded right now — please try refreshing.";
       renderGrid();
     });
+
+  // ---------- featured project in the hero square (random img-01 from projects.json) ----------
+  const heroVisual = document.querySelector('.hero__visual');
+  function showHighlight() {
+    if (!heroVisual) return;
+    const pool = projects.filter(p => p.images && p.images.length);
+    if (!pool.length) return;                       // keep the original icons if there is nothing to show
+    const proj = pool[Math.floor(Math.random() * pool.length)];
+
+    const box = document.createElement('div');
+    box.className = 'hero__highlight';
+    box.tabIndex = 0;
+    box.setAttribute('role', 'button');
+    box.setAttribute('aria-label', `Open featured project: ${proj.title}`);
+
+    const img = document.createElement('img');
+    img.alt = proj.title || 'Featured project';
+    img.src = proj.images[0];
+    img.addEventListener('error', () => {           // image missing -> go back to the icons
+      box.remove();
+      heroVisual.classList.remove('has-highlight');
+      heroVisual.setAttribute('aria-hidden', 'true');
+    });
+    box.appendChild(img);
+
+    const tag = document.createElement('span');
+    tag.className = 'hero__highlight-tag';
+    tag.textContent = `Featured · ${proj.title}`;
+    box.appendChild(tag);
+
+    const open = () => openLightbox(proj);
+    box.addEventListener('click', open);
+    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+
+    heroVisual.appendChild(box);
+    heroVisual.classList.add('has-highlight');
+    heroVisual.removeAttribute('aria-hidden');
+  }
 
   // image helper: swaps in a placeholder if the file is missing
   function imgWithFallback(src, alt, cls, fbCls, fbText, bg) {
