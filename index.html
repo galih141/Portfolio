@@ -227,6 +227,25 @@
     display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
   }
 
+  /* project cover images + case-study lightbox (wired to projects.json) */
+  .project-card__cover { position: relative; overflow: hidden; }
+  .project-card__cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .cs-cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 2px solid var(--ink); border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0; }
+  .cs-cover-fallback { width: 100%; aspect-ratio: 16/9; border-bottom: 2px solid var(--ink); border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .cs-header { padding: 26px 30px 6px; }
+  .cs-header h2 { font-family: var(--font-display); font-size: clamp(20px, 3.6vw, 26px); margin: 0 0 10px; letter-spacing: -0.01em; }
+  .cs-meta { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .cs-block { padding: 20px 30px; }
+  .cs-block h3 { font-size: 12px; font-weight: 700; color: var(--red); margin: 0 0 8px; }
+  .cs-block p { font-size: 15px; color: var(--muted); }
+  .cs-img { width: 100%; display: block; border: 2px solid var(--ink); border-radius: var(--radius-sm); }
+  .cs-img-fallback { width: 100%; min-height: 180px; border: 2px dashed var(--ink); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .cs-divider { border: none; border-top: 2px solid var(--line); margin: 0 30px; }
+  .cs-gallery { padding: 4px 30px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .cs-gallery img, .cs-gallery .cs-img-fallback { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 2px solid var(--ink); border-radius: var(--radius-sm); }
+  @media (max-width: 560px) { .cs-gallery { grid-template-columns: 1fr; } }
+
   /* footer */
   .site-footer { padding: 32px 24px; border-top: 2px solid var(--ink); position: relative; z-index: 2; }
   .site-footer__row {
@@ -402,16 +421,6 @@
   const catLabels = { visualization: '3D Visualization', mockup: 'Mockup', element: '3D Element' };
   const catBg = { visualization: '#E4ECFF', mockup: '#FFF3D6', element: '#E1F5E6' };
 
-  // Sample data for preview only — will be replaced by projects.json when wired up
-  const projects = [
-    { title: 'Skincare Bottle Render', category: 'visualization', client: 'Aurelia Beauty', year: '2025', description: 'Photoreal product render for a skincare launch campaign, built for e-commerce and paid social.' },
-    { title: 'App Icon Mockup Set', category: 'mockup', client: 'Northline Studio', year: '2025', description: 'A layered mockup kit showing the app across devices for a marketplace listing page.' },
-    { title: 'Isometric Room Element', category: 'element', client: 'Personal', year: '2024', description: 'A modular isometric room element built for use in marketing decks and landing pages.' },
-    { title: 'Sneaker Product Shots', category: 'visualization', client: 'Kilat Footwear', year: '2025', description: 'Studio-style 3D renders replacing physical product photography for a full sneaker line.' },
-    { title: 'Coffee Bag Packshot', category: 'mockup', client: 'Kopi Senja', year: '2024', description: 'Packaging mockup used across the brand\u2019s Instagram and web storefront.' },
-    { title: 'Low-poly Icon Pack', category: 'element', client: 'Personal', year: '2024', description: 'A set of low-poly 3D icons designed for a UI element marketplace.' },
-  ];
-
   const grid = document.getElementById('projectGrid');
   const emptyState = document.getElementById('emptyState');
   const filterRow = document.getElementById('filterRow');
@@ -419,7 +428,36 @@
   const lightboxPanel = document.getElementById('lightboxPanel');
   const lightboxContent = document.getElementById('lightboxContent');
   const lbClose = document.getElementById('lightboxClose');
+  let projects = [];
   let activeCategory = 'all';
+
+  // ---------- load real data from projects.json ----------
+  fetch('projects.json', { cache: 'no-store' })
+    .then(res => { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    .then(data => { projects = Array.isArray(data) ? data : []; renderGrid(); })
+    .catch(err => {
+      console.error('Could not load projects.json:', err);
+      projects = [];
+      emptyState.textContent = "Projects couldn't be loaded right now — please try refreshing.";
+      renderGrid();
+    });
+
+  // image helper: swaps in a placeholder if the file is missing
+  function imgWithFallback(src, alt, cls, fbCls, fbText, bg) {
+    const img = document.createElement('img');
+    if (cls) img.className = cls;
+    img.loading = 'lazy';
+    img.alt = alt;
+    img.src = src;
+    img.addEventListener('error', () => {
+      const fb = document.createElement('div');
+      fb.className = fbCls;
+      fb.textContent = fbText;
+      if (bg) fb.style.background = bg;
+      img.replaceWith(fb);
+    });
+    return img;
+  }
 
   function renderGrid() {
     const filtered = activeCategory === 'all' ? projects : projects.filter(p => p.category === activeCategory);
@@ -437,6 +475,14 @@
       const cover = document.createElement('div');
       cover.className = 'project-card__cover';
       cover.style.background = catBg[proj.category] || catBg.mockup;
+      if (proj.images && proj.images.length) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.alt = proj.title || 'Project cover';
+        img.src = proj.images[0];
+        img.addEventListener('error', () => img.remove());   // colored block shows through
+        cover.appendChild(img);
+      }
       card.appendChild(cover);
 
       const body = document.createElement('div');
@@ -468,28 +514,31 @@
     renderGrid();
   });
 
+  // ---------- case-study popup ----------
   function openLightbox(proj) {
     lightboxContent.innerHTML = '';
-    const cover = document.createElement('div');
-    cover.style.background = catBg[proj.category] || catBg.mockup;
-    cover.style.aspectRatio = '16/9';
-    cover.style.borderBottom = '2px solid var(--ink)';
-    cover.style.borderRadius = 'calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0';
-    lightboxContent.appendChild(cover);
+    const bg = catBg[proj.category] || catBg.mockup;
+    const images = proj.images || [];
 
+    // cover
+    if (images.length) {
+      lightboxContent.appendChild(imgWithFallback(images[0], proj.title, 'cs-cover', 'cs-cover-fallback', 'Image coming soon', bg));
+    } else {
+      const fb = document.createElement('div');
+      fb.className = 'cs-cover-fallback';
+      fb.style.background = bg;
+      fb.textContent = 'Image coming soon';
+      lightboxContent.appendChild(fb);
+    }
+
+    // header: title + category · client · year
     const header = document.createElement('div');
-    header.style.padding = '26px 30px 6px';
+    header.className = 'cs-header';
     const h2 = document.createElement('h2');
-    h2.style.fontFamily = 'var(--font-display)';
-    h2.style.fontSize = 'clamp(20px, 3.6vw, 26px)';
-    h2.style.marginBottom = '10px';
-    h2.style.letterSpacing = '-0.01em';
     h2.textContent = proj.title;
     header.appendChild(h2);
     const meta = document.createElement('div');
-    meta.style.fontSize = '12px';
-    meta.style.color = 'var(--muted)';
-    meta.style.fontWeight = '600';
+    meta.className = 'cs-meta';
     const parts = [catLabels[proj.category] || proj.category];
     if (proj.client) parts.push(`Client: ${proj.client}`);
     if (proj.year) parts.push(`Year: ${proj.year}`);
@@ -497,22 +546,64 @@
     header.appendChild(meta);
     lightboxContent.appendChild(header);
 
+    // overview
     if (proj.description) {
       const overview = document.createElement('div');
-      overview.style.padding = '20px 30px';
+      overview.className = 'cs-block';
       const h3 = document.createElement('h3');
-      h3.style.fontSize = '12px';
-      h3.style.fontWeight = '700';
-      h3.style.color = 'var(--red)';
-      h3.style.marginBottom = '8px';
       h3.textContent = 'Overview';
       const p = document.createElement('p');
-      p.style.fontSize = '15px';
-      p.style.color = 'var(--muted)';
       p.textContent = proj.description;
       overview.appendChild(h3);
       overview.appendChild(p);
       lightboxContent.appendChild(overview);
+    }
+
+    // optional process blocks (image / text, in order)
+    if (Array.isArray(proj.process)) {
+      proj.process.forEach(block => {
+        const hr = document.createElement('hr');
+        hr.className = 'cs-divider';
+        lightboxContent.appendChild(hr);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'cs-block';
+        if (block.type === 'image' && block.src) {
+          wrap.appendChild(imgWithFallback(block.src, block.caption || proj.title, 'cs-img', 'cs-img-fallback', 'Image coming soon', bg));
+        } else if (block.type === 'text') {
+          if (block.heading) {
+            const h3 = document.createElement('h3');
+            h3.textContent = block.heading;
+            wrap.appendChild(h3);
+          }
+          const p = document.createElement('p');
+          p.textContent = block.body || '';
+          wrap.appendChild(p);
+        }
+        lightboxContent.appendChild(wrap);
+      });
+    }
+
+    // remaining images as the final gallery
+    const rest = images.slice(1);
+    if (rest.length) {
+      const hr = document.createElement('hr');
+      hr.className = 'cs-divider';
+      lightboxContent.appendChild(hr);
+
+      const label = document.createElement('div');
+      label.className = 'cs-block';
+      const h3 = document.createElement('h3');
+      h3.textContent = 'More from this project';
+      label.appendChild(h3);
+      lightboxContent.appendChild(label);
+
+      const gallery = document.createElement('div');
+      gallery.className = 'cs-gallery';
+      rest.forEach((src, i) => {
+        gallery.appendChild(imgWithFallback(src, `${proj.title} — image ${i + 2}`, '', 'cs-img-fallback', 'Image coming soon', bg));
+      });
+      lightboxContent.appendChild(gallery);
     }
 
     lightbox.style.display = 'flex';
@@ -530,8 +621,6 @@
   lbClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (lightbox.style.display === 'flex' && e.key === 'Escape') closeLightbox(); });
-
-  renderGrid();
 })();
 </script>
 </body>
