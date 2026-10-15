@@ -84,7 +84,7 @@
   ul { margin: 0; padding: 0; list-style: none; }
   button { font-family: inherit; }
   img { max-width: 100%; display: block; }
-  :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 
   .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
   .section { padding-block: var(--section-y); }
@@ -189,7 +189,8 @@
     position: absolute; inset: 0; overflow: hidden; cursor: pointer; z-index: 3; background: var(--surface);
     border-radius: calc(clamp(36px, 6vw, 56px) - 3px);
   }
-  .hero__highlight img { width: 100%; height: 100%; object-fit: cover; }
+  .hero__highlight img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.7s ease; }
+  .hero__highlight img.is-active { opacity: 1; }
   .hero__highlight-tag {
     position: absolute; left: clamp(12px, 2vw, 18px); bottom: clamp(12px, 2vw, 18px);
     max-width: calc(100% - 2 * clamp(12px, 2vw, 18px));
@@ -292,11 +293,12 @@
   }
 
   .cta-socials { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-  .cta-socials__label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-  .cta-socials__list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+  .cta-socials__label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cta-socials__list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
   .cta-socials a {
-    width: 48px; height: 48px; padding: 9px; display: flex; align-items: center; justify-content: center;
-    background: #fff; border: 2px solid #000; border-radius: 14px; box-shadow: 3px 3px 0 #000;
+    width: clamp(56px, 4.2vw, 72px); height: clamp(56px, 4.2vw, 72px); padding: clamp(11px, 0.9vw, 15px);
+    display: flex; align-items: center; justify-content: center;
+    background: #fff; border: 2px solid #000; border-radius: 16px; box-shadow: 3px 3px 0 #000;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
   }
   .cta-socials a img { width: 100%; height: 100%; object-fit: contain; }
@@ -333,7 +335,7 @@
     max-height: 90vh; max-height: calc(100dvh - 2 * clamp(12px, 3vw, 24px));
     display: flex; flex-direction: column; overflow: hidden;
     background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius-lg);
-    box-shadow: calc(var(--shadow) * 1.8) calc(var(--shadow) * 1.8) 0 var(--blue);
+    box-shadow: calc(var(--shadow) * 1.8) calc(var(--shadow) * 1.8) 0 var(--ink);
   }
   /* the scroll lives inside the rounded panel, so the scrollbar never cuts the corners */
   .lightbox__scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--ink) transparent; }
@@ -389,7 +391,7 @@
 
     .cta-band__side { align-self: stretch; }
     .btn--dark { width: 100%; }
-    .cta-socials a { width: 44px; height: 44px; }
+    .cta-socials a { width: 54px; height: 54px; padding: 11px; }
 
     .site-footer__row { flex-direction: column; align-items: flex-start; }
     .site-footer__status { justify-content: flex-start; text-align: left; }
@@ -577,36 +579,69 @@
     if (!heroVisual) return;
     const pool = projects.filter(p => p.images && p.images.length);
     if (!pool.length) return;                       // keep the original icons if there is nothing to show
-    const proj = pool[Math.floor(Math.random() * pool.length)];
+    const ROTATE_MS = 5000;
+    let idx = Math.floor(Math.random() * pool.length);
+    let current = pool[idx];
+    let timer = null;
+    let mounted = false;
 
     const box = document.createElement('div');
     box.className = 'hero__highlight';
     box.tabIndex = 0;
     box.setAttribute('role', 'button');
-    box.setAttribute('aria-label', `Open featured project: ${proj.title}`);
-
-    const img = document.createElement('img');
-    img.alt = proj.title || 'Featured project';
-    img.src = proj.images[0];
-    img.addEventListener('error', () => {           // image missing -> go back to the icons
-      box.remove();
-      heroVisual.classList.remove('has-highlight');
-      heroVisual.setAttribute('aria-hidden', 'true');
-    });
-    box.appendChild(img);
 
     const tag = document.createElement('span');
     tag.className = 'hero__highlight-tag';
-    tag.textContent = `Featured · ${proj.title}`;
     box.appendChild(tag);
 
-    const open = () => openLightbox(proj);
-    box.addEventListener('click', open);
-    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    function setLabel(proj) {
+      tag.textContent = `Featured · ${proj.title}`;
+      box.setAttribute('aria-label', `Open featured project: ${proj.title}`);
+    }
 
-    heroVisual.appendChild(box);
-    heroVisual.classList.add('has-highlight');
-    heroVisual.removeAttribute('aria-hidden');
+    // load an image off-screen first, then crossfade it in
+    function show(proj, tries) {
+      const img = document.createElement('img');
+      img.alt = proj.title || 'Featured project';
+      img.addEventListener('load', () => {
+        current = proj;
+        box.insertBefore(img, tag);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          box.querySelectorAll('img.is-active').forEach(old => {
+            old.classList.remove('is-active');
+            setTimeout(() => old.remove(), 800);
+          });
+          img.classList.add('is-active');
+        }));
+        setLabel(proj);
+        if (!mounted) {
+          mounted = true;
+          heroVisual.appendChild(box);
+          heroVisual.classList.add('has-highlight');
+          heroVisual.removeAttribute('aria-hidden');
+        }
+      });
+      img.addEventListener('error', () => {         // image missing -> try the next project
+        if (tries < pool.length - 1) { idx = (idx + 1) % pool.length; show(pool[idx], tries + 1); }
+      });
+      img.src = proj.images[0];
+    }
+
+    function next() { if (pool.length > 1) { idx = (idx + 1) % pool.length; show(pool[idx], 0); } }
+    function start() { stop(); if (pool.length > 1) timer = setInterval(next, ROTATE_MS); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    box.addEventListener('click', () => openLightbox(current));
+    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(current); } });
+    // pause while the visitor is looking closely
+    box.addEventListener('mouseenter', stop);
+    box.addEventListener('mouseleave', start);
+    box.addEventListener('focusin', stop);
+    box.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
+
+    show(current, 0);
+    start();
   }
 
   // image helper: swaps in a placeholder if the file is missing
