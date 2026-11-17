@@ -261,56 +261,6 @@
     ]
   },
   {
-    "id": "alev",
-    "title": "Alev",
-    "category": "visualization",
-    "description": "Working alongside Widarto Impact, I developed 3D product visualizations for Alev to present their brand packaging in clean, realistic settings. The renders turn initial packaging concepts into high-resolution visual assets ready for presentation.",
-    "images": [
-      "projects/alev/img-01.jpg"
-    ],
-    "client": "Widarto impact",
-    "year": "2026",
-    "process": [
-      {
-        "type": "text",
-        "heading": "Hybrid Integration: 3D Renders & AI Images",
-        "body": "I matched true-to-scale 3D product renders with AI-generated stock photography using proxy geometry to align perspective and lighting, creating a realistic and consistent final shot."
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-01.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-02.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-03.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-04.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-05.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-06.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-07.jpg"
-      },
-      {
-        "type": "image",
-        "src": "projects/alev/process-08.jpg"
-      }
-    ]
-  },
-  {
     "id": "brendys-by-yuliet-beauty",
     "title": "brendys by yuliet beauty",
     "category": "visualization",
